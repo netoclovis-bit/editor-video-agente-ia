@@ -1,0 +1,96 @@
+# Dados da sua loja. Copie para marca.yaml (python -m agente_instagram iniciar) e preencha.
+# Quanto mais detalhe aqui, melhores ficam os posts.
+
+loja:
+  nome: "Minha Loja"
+  instagram: "@minhaloja"
+  nicho: "moda feminina casual"
+  descricao: "Loja de roupas femininas confortáveis, com peças básicas e tendências da estação."
+  publico: "mulheres de 25 a 45 anos que trabalham fora e querem se vestir bem sem gastar muito"
+  cidade: "Campinas - SP"
+  site: "https://minhaloja.com.br"
+  whatsapp: "(19) 99999-9999"
+  como_comprar: "pelo direct, pelo WhatsApp ou pelo link na bio"
+  diferenciais:
+    - "entrega no mesmo dia em Campinas"
+    - "troca fácil em até 30 dias"
+  tom_de_voz: "próximo, alegre e direto, como uma amiga que entende de moda; usa 'você'"
+  evitar:
+    - "prometer frete grátis"
+    - "falar mal de concorrentes"
+
+visual:
+  cor_primaria: "#C2185B"     # cor de destaque (botões, selo de preço)
+  cor_secundaria: "#FFB74D"   # usada no fundo quando não há imagem de IA
+  cor_texto: "#FFFFFF"
+  logo: "marca/logo.png"      # PNG com fundo transparente (opcional)
+  fonte: ""                   # caminho de um .ttf (opcional)
+  estilo_imagens: "fotografia lifestyle, luz natural suave, tons quentes, ambiente urbano e aconchegante"
+
+produtos:
+  - nome: "Vestido Midi Floral"
+    preco: 189.90
+    preco_promocional: 149.90     # opcional: só use se a promoção for real
+    descricao: "Vestido midi de viscose, estampa floral, do P ao GG."
+    fotos: ["produtos/vestido-floral.jpg"]
+    link: "https://minhaloja.com.br/vestido-midi-floral"
+  - nome: "Calça Wide Leg Preta"
+    preco: 159.90
+    descricao: "Calça de alfaiataria wide leg, cintura alta, tecido que não amassa."
+    fotos: ["produtos/calca-wide-leg.jpg"]
+    link: "https://minhaloja.com.br/calca-wide-leg"
+
+hashtags_base: ["minhaloja", "modafeminina", "campinas"]
+
+calendario:
+  fuso: "America/Sao_Paulo"
+  dias: [seg, ter, qua, qui, sex, sab]
+  horarios: ["12:00", "19:30"]      # melhores horários do seu público
+  horario_stories: "10:00"
+  por_semana:                       # quantos de cada formato por semana
+    reels: 3
+    feed: 2
+    carrossel: 1
+    story: 5
+  planejar_com_antecedencia_dias: 3
+  datas_especiais:
+    - "Black Friday: última sexta de novembro"
+    - "Natal"
+
+publicacao:
+  # true = o agente prepara e espera você aprovar (python -m agente_instagram aprovar <id>).
+  # false = publica sozinho no horário.
+  aprovar_antes_de_publicar: false
+
+reels:
+  duracao_cena: 3.0
+  musica: ""      # MP3 livre de direitos para fundo dos reels (ex.: "marca/musica.mp3")
+
+anuncios:
+  ativo: false                       # liga o tráfego pago
+  ativar_automaticamente: false      # false = campanha nasce pausada e espera sua aprovação
+  objetivo: "engajamento"            # engajamento | trafego (precisa link_destino) | alcance
+  link_destino: ""                   # site/WhatsApp para objetivo trafego
+  chamada: "SHOP_NOW"                # botão: SHOP_NOW, LEARN_MORE, CONTACT_US...
+  orcamento_diario_padrao: 15.00     # R$ por dia por campanha
+  orcamento_diario_max: 25.00        # nenhuma campanha passa disso
+  orcamento_diario_total_max: 40.00  # soma de todas as campanhas ativas
+  orcamento_mensal_max: 600.00       # teto do mês na conta de anúncios
+  duracao_dias: 7
+  impulsionar_top_posts_por_semana: 1  # a rotina escolhe o post de melhor engajamento
+  alcance_minimo: 100                  # só impulsiona post com pelo menos esse alcance orgânico
+  publico:
+    paises: ["BR"]
+    # Para atingir só a região da loja, preencha latitude/longitude e raio:
+    # latitude: -22.9056
+    # longitude: -47.0608
+    # raio_km: 15
+    idade_min: 22
+    idade_max: 50
+    genero: "feminino"               # feminino | masculino | (vazio = todos)
+  regras:
+    gasto_min_para_avaliar: 15.00    # só julga a campanha depois de gastar isso
+    cpc_max: 1.50                    # custo por clique acima disso → pausa
+    ctr_min: 0.8                     # taxa de cliques (%) abaixo disso → pausa
+    escalar_se_cpc_abaixo: 0.50      # campanha boa: aumenta o orçamento
+    aumento_percentual: 20

@@ -1,0 +1,12 @@
+# Segredos
+.env
+
+# Mídia gerada (fica hospedada fora; o estado.json guarda os links)
+dados/midia/
+dados/*.tmp
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
