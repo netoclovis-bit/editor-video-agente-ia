@@ -1,0 +1,62 @@
+# Roda a rotina do agente de hora em hora: publica no horário, planeja, produz as artes,
+# lê as métricas e cuida dos anúncios. Para ligar, crie a variável de repositório
+# AGENTE_ATIVO=true (Settings → Secrets and variables → Actions → Variables).
+# Passo a passo completo: docs/CONFIGURAR.md
+name: Agente Instagram
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: agente-instagram
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  rotina:
+    if: vars.AGENTE_ATIVO == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar FFmpeg e fontes
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Rodar rotina
+        env:
+          MODO_SIMULACAO: ${{ vars.MODO_SIMULACAO || 'true' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          META_AD_ACCOUNT_ID: ${{ secrets.META_AD_ACCOUNT_ID }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: python -m agente_instagram rotina
+
+      # A fila (dados/estado.json) é salva no próprio repositório entre uma execução e outra.
+      - name: Salvar fila
+        if: always()
+        run: |
+          git config user.name "agente-instagram[bot]"
+          git config user.email "agente-instagram[bot]@users.noreply.github.com"
+          git add dados/estado.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "Agente: atualiza fila de posts"
+          git pull --rebase
+          git push
