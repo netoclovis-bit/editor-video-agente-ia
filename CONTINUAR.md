@@ -54,10 +54,12 @@ Para ver um 3D: sirva `harness/render` (`python -m http.server 8765`, com `model
 
 O dono testou no quarto e aprovou. Pediu para melhorar a qualidade de cada peça:
 
-1. **Puff Belle** — o tecido cobre o alto dos pés de madeira. Ajustar a separação madeira/tecido (`legTop`, opção `thin` em `CFG`).
-2. **Poltronas com moldura de madeira (Ágata, Topázio, Safira, Itália)** — manchas de tecido sobre a madeira dos braços. Melhorar a classificação (espessura + suavização dos rótulos).
+1. ~~**Puff Belle** — o tecido cobre o alto dos pés de madeira.~~ Feito: opção `posts` em `CFG`.
+2. ~~**Poltronas com moldura de madeira (Ágata, Topázio, Safira, Itália, Melissa)** — manchas de tecido sobre a madeira.~~ Feito: opção `refine` (corte mínimo que leva a fronteira madeira/tecido para os vincos, sem serrilhado; o pé cortado reto em `legTop`). Rubi e Pérola com o topo do pé reto; Melissa com os pés subindo até o braço (`sidePost`).
 3. **Dalian** — superfície do braço e da lateral com amassados e "rasgos" na textura; falta acabamento em detalhes. Suavizar a malha nessas regiões ou refazer o modelo.
-4. **Pés faltando ou tecido por cima da madeira** em outros modelos: revisar um por um.
+4. **Pés faltando ou tecido por cima da madeira** nos sofás: revisar um por um.
+
+Para conferir a madeira/tecido de um modelo: `node tools/mapax.mjs saida/modelo.glb` (mapa de altura × profundidade com o material da face mais de fora) e `node tools/fatias.mjs saida/modelo.glb 0.1 0.4` (onde o pé vira corpo).
 5. Para peças que a IA errou na forma, **gerar de novo** no PC (RTX 3060, 12 GB) com **Hunyuan3D-2mv** (várias fotos: frente, lado, costas), em vez de uma foto só. Depois passar pelo `process-ia.mjs`.
 
 Ideia para o futuro: **PartCrafter** gera o móvel já separado em peças (encosto, assento, braços), o que deixaria as animações de reclinar e abrir mais perfeitas.
