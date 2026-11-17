@@ -148,8 +148,35 @@ model-viewer.dims-away .tape, model-viewer.dims-away .dim-svg { opacity: 0; }
 model-viewer[ar-status="session-started"] .tape,
 model-viewer[ar-status="session-started"] .dim-svg,
 model-viewer[ar-status="session-started"] .bottom,
-model-viewer[ar-status="session-started"] .tools .chip,
-model-viewer[ar-status="session-started"] #tgDims { display: none; }
+model-viewer[ar-status="session-started"] .tools,
+model-viewer.em-ar .tape, model-viewer.em-ar .dim-svg, model-viewer.em-ar .bottom, model-viewer.em-ar .tools { display: none; }
+
+/* câmera do Android (a realidade aumentada roda dentro da página): pequeno, para o sofá aparecer inteiro */
+.xr-ui { display: none; position: absolute; inset: 0; pointer-events: none; font-family: var(--font-body); }
+model-viewer.em-ar .xr-ui { display: block; }
+.xr-ui > * { pointer-events: auto; }
+.xr-glass { background: rgb(20 18 16 / 0.5); color: #fff; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.xr-title { position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); left: 64px; right: 118px; max-width: max-content; height: 30px; line-height: 30px; padding: 0 12px; border-radius: 15px; font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+.xr-open { position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); right: 12px; height: 30px; padding: 0 12px 0 10px; border: 0; border-radius: 15px; display: inline-flex; align-items: center; gap: 6px; font: 600 12.5px var(--font-body); cursor: pointer; }
+.xr-open svg { width: 15px; height: 15px; flex: none; }
+.xr-open[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); }
+.xr-sheet { position: absolute; left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); max-width: 460px; margin: 0 auto; padding: 5px; border-radius: 18px; background: color-mix(in srgb, var(--surface) 93%, transparent); color: var(--ink); box-shadow: 0 -4px 18px rgb(0 0 0 / 0.18); }
+.xr-bar { display: flex; align-items: center; gap: 6px; }
+.xr-toggle { flex: 1; min-width: 0; height: 34px; padding: 0 8px; border: 0; background: transparent; color: inherit; display: flex; align-items: center; gap: 6px; font: 600 12.5px var(--font-body); text-align: left; cursor: pointer; }
+.xr-toggle small { font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.xr-toggle span { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.xr-toggle svg { width: 16px; height: 16px; flex: none; transition: transform 0.2s ease; }
+.xr-sheet[data-open="false"] .xr-toggle svg { transform: rotate(180deg); }
+.xr-wa { flex: none; height: 34px; padding: 0 12px 0 10px; border-radius: 12px; background: var(--ink); color: var(--bg); display: inline-flex; align-items: center; gap: 6px; font: 600 12.5px var(--font-body); text-decoration: none; }
+.xr-wa svg { width: 15px; height: 15px; }
+.xr-body { display: grid; gap: 2px; }
+.xr-sheet[data-open="false"] .xr-body { display: none; }
+.xr-row { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 4px; }
+.xr-row::-webkit-scrollbar { display: none; }
+.xr-chip { flex: none; height: 30px; padding: 0 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 12px var(--font-body); cursor: pointer; }
+.xr-chip[aria-pressed="true"] { border-color: var(--brand); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--brand); }
+.xr-sw { flex: none; width: 30px; height: 30px; border: 0; border-radius: 50%; background-size: cover; background-position: center; cursor: pointer; box-shadow: inset 0 -4px 7px rgb(0 0 0 / 0.18); }
+.xr-sw[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink); }
 
 /* ficha do produto */
 .panel { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
@@ -357,6 +384,30 @@ h1 { font: 700 clamp(32px, 3.8vw, 44px)/1 var(--font-display); letter-spacing: -
           </div>
         </div>
 
+        <div class="xr-ui" id="xrUi">
+          <div class="xr-title xr-glass" id="xrTitle"></div>
+          <button class="xr-open xr-glass" id="xrOpen" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h11M4 18h16M15 10l5 4-5 4"/></svg>
+            <span id="xrOpenLabel">Reclinar</span>
+          </button>
+          <div class="xr-sheet" id="xrSheet" data-open="true">
+            <div class="xr-bar">
+              <button class="xr-toggle" id="xrToggle" type="button" aria-expanded="true" aria-controls="xrBody">
+                <small>Tecido</small><span id="xrToggleLabel"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <a class="xr-wa" id="xrWa" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
+                Orçamento
+              </a>
+            </div>
+            <div class="xr-body" id="xrBody">
+              <div class="xr-row" id="xrFabrics" role="group" aria-label="Tecido"></div>
+              <div class="xr-row" id="xrColors" role="group" aria-label="Cor"></div>
+            </div>
+          </div>
+        </div>
+
         <div class="bottom">
           <button class="ar-btn" id="arBtn" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
@@ -524,13 +575,13 @@ const MODELOS = [
   { id: 'doha', nome: 'Doha', categoria: 'Poltrona', tipo: 'Poltrona reclinável', retratil: false, reclinavel: true, cor: 'Bege Areia', origem: 'ia',
     resumo: 'Poltrona reclinável com apoio de cabeça e braços estofados.',
     ficha: [...BASE, 'Assento de espuma D28', 'Encosto e braços preenchidos 100% com fibra siliconada', 'Articulação: mecanismo reclinável de 1 estágio em ferro', REVEST, 'Pés de plástico preto injetado'],
-    tamanhos: [{ arquivo: 'doha-085-rec.glb', rotulo: '1 lugar', largura: 0.85, profundidade: 0.85, altura: 1.12, foto: 'foto-doha.webp', reclina: { fundo: 1.30, recuo: 0.23, altura: 1.06 } }] },
+    tamanhos: [{ arquivo: 'doha-085-rec.glb', arAberta: 'doha-085-rec-aberta.glb', rotulo: '1 lugar', largura: 0.85, profundidade: 0.85, altura: 1.12, foto: 'foto-doha.webp', reclina: { fundo: 1.30, recuo: 0.23, altura: 1.06 } }] },
   { id: 'dalian', nome: 'Dalian', categoria: 'Poltrona', tipo: 'Poltrona reclinável · ArtForms', retratil: false, reclinavel: true, cor: 'Cinza Névoa', origem: 'ia', tecidos: ['Texcouro'], versoes: true,
     resumo: 'Poltrona reclinável da linha ArtForms, na versão manual ou elétrica com massageador.',
     ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com molas zig zag, percintas elásticas tipo italiana e espuma D28', 'Encosto e braços preenchidos 100% com fibra siliconada', 'Articulação: mecanismo em ferro com reclinação manual', 'Revestimento: somente em courino (Texcouro)'],
     tamanhos: [
-      { arquivo: 'dalian-098-rec.glb', rotulo: 'Manual', largura: 0.98, profundidade: 0.91, altura: 1.00, foto: 'foto-dalian.webp', reclina: { fundo: 1.26, recuo: 0.13, altura: 0.94 } },
-      { arquivo: 'dalian-098-rec.glb', rotulo: 'Elétrica com massageador', largura: 0.98, profundidade: 0.91, altura: 1.00, foto: 'foto-dalian.webp', reclina: { fundo: 1.26, recuo: 0.13, altura: 0.94 },
+      { arquivo: 'dalian-098-rec.glb', arAberta: 'dalian-098-rec-aberta.glb', rotulo: 'Manual', largura: 0.98, profundidade: 0.91, altura: 1.00, foto: 'foto-dalian.webp', reclina: { fundo: 1.26, recuo: 0.13, altura: 0.94 } },
+      { arquivo: 'dalian-098-rec.glb', arAberta: 'dalian-098-rec-aberta.glb', rotulo: 'Elétrica com massageador', largura: 0.98, profundidade: 0.91, altura: 1.00, foto: 'foto-dalian.webp', reclina: { fundo: 1.26, recuo: 0.13, altura: 0.94 },
         ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com molas zig zag, percintas elásticas tipo italiana e espuma D28', 'Encosto e braços preenchidos 100% com fibra siliconada', 'Articulação: mecanismo em ferro com reclinação elétrica', 'Massageador: pontos de massagem no assento e encosto', 'Revestimento: somente em courino (Texcouro)'] },
     ] },
   { id: 'istambul', nome: 'Istambul', tipo: 'Assento fixo', retratil: false, cor: 'Fendi', origem: 'ia',
@@ -644,7 +695,7 @@ if (PREVIA_TEXTO) {
   const cache = new Map();
   window.fetch = async (input, init) => {
     const url = typeof input === 'string' ? input : input.url;
-    const m = /([\w-]+\.glb)(\?.*)?$/.exec(url || '');
+    const m = /([\w-]+\.glb)(\?[^#]*)?(#.*)?$/.exec(url || '');
     if (!m) return realFetch(input, init);
     if (!cache.has(m[1])) {
       cache.set(m[1], realFetch(m[1] + '.txt')
@@ -796,6 +847,11 @@ async function applyColor() {
 // ---------- tamanho / modelo ----------
 let pendingTheta = null;
 let novoModelo = false;
+// iPhone: a câmera é da Apple; a loja só tem a faixa de baixo, com um botão que volta para os tecidos
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const faixaIOS = () => !isIOS ? '' : '#' + new URLSearchParams({
+  callToAction: 'Trocar tecido', checkoutTitle: `${model().nome} · ${m2(size().largura)}`, checkoutSubtitle: `${LOJA.nome} · tamanho real`,
+}).toString().replace(/\+/g, '%20');
 function loadSize() {
   animReady = false;
   pendingTheta = size().theta ?? (novoModelo ? -32 : null);
@@ -804,7 +860,7 @@ function loadSize() {
   $('progress').style.opacity = '1';
   mv.alt = `Sofá ${model().nome} ${size().rotulo} em 3D`;
   const t = size();
-  mv.src = t.arquivoFoto && !state.animated ? t.arquivoFoto : t.arquivo;
+  mv.src = (t.arquivoFoto && !state.animated ? t.arquivoFoto : t.arquivo) + faixaIOS();
 }
 mv.addEventListener('progress', (e) => {
   const p = e.detail.totalProgress;
@@ -1003,6 +1059,7 @@ function updateUI() {
   $('msg').textContent = msg;
   $('cta').href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
   $('ctaTop').href = $('cta').href;
+  renderXR();
 }
 function updateFit() {
   const raw = $('wall').value.trim().replace(',', '.');
@@ -1061,10 +1118,27 @@ $('sheetBg').addEventListener('click', (e) => { if (e.target === $('sheetBg')) c
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('sheetBg').hidden) closeSheet(); });
 // a poltrona reclinável vai fechada para a câmera: no iPhone o encosto não sai inclinado no arquivo da realidade aumentada
 function fecharParaAR() {
-  if (!size().reclina || !state.open) return;
+  if (!isIOS || !size().reclina || !state.open || size().arAberta) return;
   cancelAnimationFrame(raf); state.open = false; animT = 0; mv.currentTime = 0; placeDims(); updateUI();
 }
-$('tryAr').addEventListener('click', () => { closeSheet(); fecharParaAR(); mv.activateAR().catch(() => {}); });
+// iPhone com a poltrona reclinada: vai para a sala o arquivo com a pose fixa, na cor escolhida, e depois volta o animado
+function carregar(src) {
+  return new Promise((res) => { animReady = false; mv.addEventListener('load', () => res(), { once: true }); mv.src = src; });
+}
+async function abrirAR() {
+  const t = size();
+  if (isIOS && t.reclina && state.open && t.arAberta) {
+    const volta = mv.src;
+    await carregar(t.arAberta + faixaIOS());
+    await applyColor();
+    try { await mv.activateAR(); } finally { setTimeout(() => carregar(volta), 800); }
+    return;
+  }
+  fecharParaAR();
+  await mv.activateAR();
+}
+$('tryAr').addEventListener('click', () => { closeSheet(); abrirAR().catch(() => {}); });
+mv.addEventListener('quick-look-button-tapped', () => { ($('fabrics').closest('.group') || $('fabrics')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 $('copyUrl').addEventListener('click', () => {
   const txt = $('sheetUrlText').textContent;
   navigator.clipboard.writeText(txt).then(() => { $('copyUrl').textContent = 'Copiado'; }).catch(() => {
@@ -1073,12 +1147,58 @@ $('copyUrl').addEventListener('click', () => {
 });
 $('arBtn').addEventListener('click', async () => {
   if (!inFrame && !inApp && mv.canActivateAR) {
-    fecharParaAR();
-    try { await mv.activateAR(); return; } catch { /* cai para a explicação */ }
+    try { await abrirAR(); return; } catch { /* cai para a explicação */ }
   }
   openSheet();
 });
-mv.addEventListener('ar-status', (e) => { if (e.detail.status === 'failed') openSheet(); });
+mv.addEventListener('ar-status', (e) => {
+  const st = e.detail.status;
+  mv.classList.toggle('em-ar', st === 'session-started' || st === 'object-placed');
+  if (st === 'failed') openSheet();
+});
+
+// ---------- câmera do Android: tecido, cor e reclinar sem sair da sala ----------
+// abrir não pode trocar de arquivo no meio da câmera (retrátil das fotos ainda fechado)
+function xrPodeAbrir() { return podeAbrir() && !(size().arquivoFoto && !state.animated); }
+function xrBotao(cls, pressed, onClick) {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = cls; b.setAttribute('aria-pressed', String(pressed));
+  b.addEventListener('click', onClick);
+  return b;
+}
+function renderXR() {
+  const m = model(), t = size(), f = fabricSel(), c = color();
+  $('xrTitle').textContent = `${m.nome} · ${m2(t.largura)}`;
+  $('xrToggleLabel').textContent = `${f.nome} ${c.nome}`;
+  $('xrOpen').style.display = xrPodeAbrir() ? '' : 'none';
+  $('xrOpen').setAttribute('aria-pressed', String(state.open));
+  $('xrOpenLabel').textContent = state.open ? 'Fechar' : t.reclina ? 'Reclinar' : 'Abrir';
+  $('xrWa').href = $('cta').href;
+  const fx = $('xrFabrics').scrollLeft, cx = $('xrColors').scrollLeft;
+  $('xrFabrics').replaceChildren(...TECIDOS.flatMap((tf, i) => {
+    if (!tecidoOk(tf)) return [];
+    const b = xrBotao('xr-chip', i === state.fabric, () => { if (i === state.fabric) return; state.fabric = i; state.color = 0; renderFabrics(); renderSwatches(); applyColor(); updateUI(); });
+    b.textContent = tf.nome;
+    return [b];
+  }));
+  $('xrColors').replaceChildren(...f.cores.map((cc, i) => {
+    const b = xrBotao('xr-sw', i === state.color, () => { state.color = i; renderSwatches(); applyColor(); updateUI(); });
+    b.style.backgroundImage = `url('${cc.foto}')`; b.title = cc.nome; b.setAttribute('aria-label', `${f.nome} ${cc.nome}`);
+    return b;
+  }));
+  $('xrFabrics').scrollLeft = fx; $('xrColors').scrollLeft = cx;
+}
+// a barra de tecidos pode ficar aberta ou recolhida (lembra a escolha)
+function setXrSheet(open, salvar) {
+  $('xrSheet').dataset.open = String(open);
+  $('xrToggle').setAttribute('aria-expanded', String(open));
+  if (salvar) { try { localStorage.setItem('provadorTecidosAR', open ? 'aberta' : 'recolhida'); } catch { /* sem armazenamento */ } }
+}
+setXrSheet((() => { try { return localStorage.getItem('provadorTecidosAR') !== 'recolhida'; } catch { return true; } })(), false);
+$('xrToggle').addEventListener('click', () => setXrSheet($('xrSheet').dataset.open !== 'true', true));
+$('xrOpen').addEventListener('click', () => setOpen(!state.open));
+// toques no painel não reposicionam o sofá
+$('xrUi').addEventListener('beforexrselect', (e) => e.preventDefault());
 
 if (inApp && !inFrame) {
   $('inapp').hidden = false;
