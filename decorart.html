@@ -143,6 +143,8 @@ model-viewer[data-side="1"] #tapeH { transform: translate(calc(-100% - 7px), -50
 .tape small { font-weight: 500; opacity: 0.75; margin-left: 4px; font-size: 10.5px; }
 .pt { width: 1px; height: 1px; pointer-events: none; }
 model-viewer:not(.show-dims) .tape, model-viewer:not(.show-dims) .dim-svg { display: none; }
+model-viewer .tape, model-viewer .dim-svg { transition: opacity 0.2s ease; }
+model-viewer.dims-away .tape, model-viewer.dims-away .dim-svg { opacity: 0; }
 model-viewer[ar-status="session-started"] .tape,
 model-viewer[ar-status="session-started"] .dim-svg,
 model-viewer[ar-status="session-started"] .bottom,
@@ -742,6 +744,7 @@ function selectModel(i) {
   if (state.open) { state.open = false; animT = 0; cancelAnimationFrame(raf); }
   state.animated = false;
   try { history.replaceState(null, '', '#' + model().id); } catch { /* sem histórico na prévia */ }
+  novoModelo = true; // o próximo modelo abre de frente (3/4), não no ângulo em que o anterior foi deixado
   renderSizes(); loadSize(); updateUI(); revealModel();
 }
 // no celular a fileira de modelos rola de lado: mantém o escolhido à vista
@@ -793,9 +796,11 @@ async function applyColor() {
 
 // ---------- tamanho / modelo ----------
 let pendingTheta = null;
+let novoModelo = false;
 function loadSize() {
   animReady = false;
-  pendingTheta = size().theta ?? null;
+  pendingTheta = size().theta ?? (novoModelo ? -32 : null);
+  novoModelo = false;
   frame(pendingTheta);
   $('progress').style.opacity = '1';
   mv.alt = `Sofá ${model().nome} ${size().rotulo} em 3D`;
@@ -814,6 +819,9 @@ mv.addEventListener('load', () => {
   applyColor();
   if (pendingOpen) { pendingOpen = false; animT = 0; primeAnim(); animateTo(ANIM); }
   else if (state.open && podeAbrir()) { primeAnim(); animT = ANIM; mv.currentTime = ANIM; } else { animT = 0; }
+  // madeira com verniz acetinado: sem os brilhos brancos que pareciam manchas nos braços
+  const madeira = mv.model && mv.model.materials.find((m) => m.name === 'Madeira');
+  try { if (madeira) madeira.pbrMetallicRoughness.setRoughnessFactor(0.62); } catch { /* modelo sem peças de madeira: o material nem é carregado */ }
   placeDims();
 });
 mv.addEventListener('error', () => { $('loading').hidden = false; $('loading').textContent = 'Não foi possível carregar o modelo 3D.'; });
@@ -827,7 +835,7 @@ function frame(thetaDeg) {
   const radius = Math.max(halfW / (t * aspect), 0.8 / t, 3.2);
   const o = mv.getCameraOrbit ? mv.getCameraOrbit() : null;
   // os sofás de canto abrem virados para o L; os outros mantêm o ângulo que a pessoa escolheu
-  const th = thetaDeg != null ? thetaDeg + 'deg' : o ? o.theta + 'rad' : '-32deg', ph = o ? o.phi + 'rad' : '74deg';
+  const th = thetaDeg != null ? thetaDeg + 'deg' : o ? o.theta + 'rad' : '-32deg', ph = thetaDeg != null || !o ? '74deg' : o.phi + 'rad';
   mv.cameraOrbit = `${th} ${ph} ${radius.toFixed(2)}m`;
 }
 new ResizeObserver(() => frame()).observe(mv);
@@ -918,6 +926,8 @@ function drawDims() {
 }
 mv.addEventListener('camera-change', () => {
   const th = mv.getCameraOrbit().theta;
+  // vista por trás: a trena atravessaria o móvel, então some e volta ao girar de novo para a frente
+  mv.classList.toggle('dims-away', Math.cos(th) < -0.17);
   const s = Math.sin(th) < 0 ? -1 : 1;
   if (s !== side) { side = s; placeDims(); } else drawDims();
 });
