@@ -16,32 +16,32 @@ fs.mkdirSync(OUT, { recursive: true });
 
 // medidas do catálogo (m); legTop = altura até onde vão os pés; frameX = moldura lateral de madeira
 const CFG = {
-  agata: { W: 0.72, D: 0.83, H: 0.90, legTop: 0.225, legMat: 'wood', frame: { outer: 0.335, inner: 0.322, arm: [0.565, 0.675], armX: 0.30 }, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'agata-072' }] },
-  berlim: { W: 1.90, D: 0.95, H: 0.85, legTop: 0.07, legMat: 'wood', armW: 0.15, out: [{ id: 'berlim-190' }, { id: 'berlim-140', W: 1.40 }] },
-  florenza: { W: 2.10, D: 0.93, H: 0.86, legTop: 0.095, legMat: 'wood', armW: 0.15, out: [{ id: 'florenza-210' }, { id: 'florenza-170', W: 1.70 }] },
+  agata: { W: 0.72, D: 0.83, H: 0.90, legTop: 0.225, legMat: 'wood', frame: { outer: 0.335, inner: 0.322, arm: [0.565, 0.675], armX: 0.30 }, sideFace: 0.343, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'agata-072' }] },
+  berlim: { W: 1.90, D: 0.95, H: 0.85, legTop: 0.097, legMat: 'wood', armW: 0.15, refine: { smooth: 1, woodIsland: 0.0004, fabricIsland: 0.0004 }, smooth: [{ side: 0.05, y: [0.12, 0.64], sheetX: 0.04, strict: true, iters: 4 }, { side: 0.06, y: [0.57, 0.68], z: [-0.14, 0.14], iters: 40, margin: 0.015 }], out: [{ id: 'berlim-190' }, { id: 'berlim-140', W: 1.40 }] },
+  florenza: { W: 2.10, D: 0.93, H: 0.86, legTop: 0.095, legMat: 'wood', armW: 0.15, smooth: [{ side: 0.07, y: [0.2, 0.58], sheetX: 0.03, strict: true, iters: 4 }, { side: 0.06, y: [0.46, 0.62], z: [0.20, 0.45], iters: 40, margin: 0.015 }], out: [{ id: 'florenza-210' }, { id: 'florenza-170', W: 1.70 }] },
   doha: { W: 0.85, D: 0.85, H: 1.12, legTop: 0.035, legMat: 'plastic', out: [{ id: 'doha-085' }] },
-  dalian: { W: 0.98, D: 0.91, H: 1.00, legTop: 0.025, legMat: 'plastic', out: [{ id: 'dalian-098' }] },
-  ibiza: { W: 2.10, D: 0.95, H: 0.85, legTop: 0.045, legMat: 'wood', out: [{ id: 'ibiza-210-foto' }] },
-  istambul: { W: 2.38, D: 0.85, H: 0.97, legTop: 0.068, legMat: 'wood', out: [{ id: 'istambul-238' }] },
+  dalian: { W: 0.98, D: 0.91, H: 1.00, legTop: 0.025, legMat: 'plastic', smooth: [{ x: [0.42, 0.60], y: [0.08, 0.47], sheetX: 0.04, iters: 8 }], out: [{ id: 'dalian-098' }] },
+  ibiza: { W: 2.10, D: 0.95, H: 0.85, legTop: 0.045, legMat: 'wood', smooth: [{ side: 0.07, y: [0.12, 0.58], sheetX: 0.04, strict: true, iters: 4 }, { side: 0.06, y: [0.49, 0.63], z: [-0.12, 0.34], iters: 40, margin: 0.015 }], out: [{ id: 'ibiza-210-foto' }] },
+  istambul: { W: 2.38, D: 0.85, H: 0.97, legTop: 0.068, legMat: 'wood', smooth: [{ side: 0.07, y: [0.25, 0.68], sheetX: 0.03, strict: true, iters: 4 }, { side: 0.07, y: [0.57, 0.75], z: [0.08, 0.44], iters: 90, margin: 0.02 }], out: [{ id: 'istambul-238' }] },
   italia: { W: 0.72, D: 0.85, H: 0.82, legTop: 0.205, legMat: 'wood', thin: 0.07, thinIters: 4, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'italia-072' }] },
   agataThin: { src: 'agata', W: 0.72, D: 0.83, H: 0.90, legTop: 0.225, legMat: 'wood', thin: 0.05, out: [{ id: 'agata-072-thin' }] },
-  lazio: { W: 3.36, D: 1.45, H: 0.88, legTop: 0.148, legMat: 'plastic', out: [{ id: 'lazio-336' }] },
+  lazio: { W: 3.36, D: 1.45, H: 0.88, legTop: 0.148, legMat: 'plastic', smooth: [{ side: 0.07, y: [0.25, 0.60], sheetX: 0.03, strict: true, iters: 4 }, { side: 0.12, y: [0.40, 0.66], z: [0.02, 0.20], iters: 30, margin: 0.015 }], out: [{ id: 'lazio-336' }] },
   mali: { W: 1.96, D: 0.90, H: 0.88, legTop: 0.105, legMat: 'wood', out: [{ id: 'mali-196' }] },
-  melissa: { W: 0.76, D: 0.80, H: 0.78, legTop: 0.255, legMat: 'wood', thin: 0.045, thinIters: 3, sidePost: { x: 0.336, y: 0.47 }, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'melissa-076' }] },
-  paris: { W: 2.14, D: 0.85, H: 0.88, legTop: 0.15, legMat: 'wood', out: [{ id: 'paris-214' }] },
+  melissa: { W: 0.76, D: 0.80, H: 0.78, legTop: 0.255, legMat: 'wood', smooth: [{ x: [0.33, 0.45], y: [0.52, 0.78], z: [-0.34, 0.18], sheetX: 0.03, strict: true, iters: 6 }], thin: 0.045, thinIters: 3, sidePost: { x: 0.336, y: 0.47 }, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'melissa-076' }] },
+  paris: { W: 2.14, D: 0.85, H: 0.88, legTop: 0.15, legMat: 'wood', smooth: [{ side: 0.07, y: [0.25, 0.59], sheetX: 0.03, strict: true, iters: 4 }], out: [{ id: 'paris-214' }] },
   parma: { W: 3.20, D: 1.00, H: 0.98, legTop: 0.055, legMat: 'wood', out: [{ id: 'parma-320-foto' }] },
-  perola: { W: 0.95, D: 0.75, H: 0.86, legTop: 0.149, legMat: 'wood', refine: { smooth: 1, woodIsland: 0.0004, fabricIsland: 0.0004 }, out: [{ id: 'perola-095' }] },
+  perola: { W: 0.95, D: 0.75, H: 0.86, legTop: 0.149, legMat: 'wood', smooth: [{ x: [0.42, 0.60], y: [0.16, 0.58], sheetX: 0.04, strict: true, iters: 6 }], refine: { smooth: 1, woodIsland: 0.0004, fabricIsland: 0.0004 }, out: [{ id: 'perola-095' }] },
   'puff-belle': { W: 0.90, D: 0.50, H: 0.45, legTop: 0.145, legMat: 'wood', thin: 0.045, thinIters: 3, posts: { x: [0.29, 0.342], z: 0.229, y: 0.34 }, refine: { smooth: 2, woodIsland: 0.0006, fabricIsland: 0.0006 }, out: [{ id: 'puff-belle-090' }] },
   roma: { W: 2.18, D: 0.93, H: 0.90, legTop: 0.115, legMat: 'wood', sideFrameX: 1.058, out: [{ id: 'roma-218' }] },
   rubi: { W: 0.66, D: 0.70, H: 0.82, legTop: 0.312, legMat: 'wood', refine: { smooth: 1, woodIsland: 0.0004, fabricIsland: 0.0004 }, out: [{ id: 'rubi-066' }] },
-  safira: { W: 0.74, D: 0.75, H: 0.85, legTop: 0.27, legMat: 'wood', thin: 0.05, thinIters: 3, sideFrameX: 0.337, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'safira-074' }] },
+  safira: { W: 0.74, D: 0.75, H: 0.85, legTop: 0.27, legMat: 'wood', thin: 0.05, thinIters: 3, sideFrameX: 0.337, rail: { y: [0.545, 0.652], x: 0.29 }, sideFace: 0.343, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0015 }, out: [{ id: 'safira-074' }] },
   tokio: { W: 3.10, D: 1.43, H: 0.88, legTop: 0.095, legMat: 'plastic', out: [{ id: 'tokio-310' }] },
-  topazio: { W: 0.72, D: 0.80, H: 0.90, legTop: 0.25, legMat: 'wood', thin: 0.05, thinIters: 3, sideFrameX: 0.337, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0008 }, out: [{ id: 'topazio-072' }] },
+  topazio: { W: 0.72, D: 0.80, H: 0.90, legTop: 0.25, legMat: 'wood', thin: 0.05, thinIters: 3, sideFrameX: 0.337, rail: { y: [0.585, 0.656], x: 0.29 }, sideFace: 0.343, refine: { cut: 0.03, smooth: 1, woodIsland: 0.0008, fabricIsland: 0.0015 }, out: [{ id: 'topazio-072' }] },
   valencia: { W: 2.50, D: 1.00, H: 1.05, legTop: 0.045, legMat: 'wood', out: [{ id: 'valencia-250-foto' }] },
   versalhes: { W: 1.82, D: 0.90, H: 0.95, legTop: 0.065, legMat: 'wood', out: [{ id: 'versalhes-182-foto' }] },
   // versões derivadas do 3D de outra versão do mesmo modelo: `from` = medidas da origem, `ops` nas coordenadas da origem
   parma2: { src: 'parma', from: { W: 3.20, D: 1.00, H: 0.98 }, ops: [['cut', -0.43, 0.43]], W: 2.30, D: 1.00, H: 0.98, legTop: 0.055, legMat: 'wood', out: [{ id: 'parma-230-foto' }] },
-  lazio1c: { src: 'lazio', from: { W: 3.36, D: 1.45, H: 0.88 }, ops: [['cut', -0.47, 0.53]], W: 2.36, D: 1.45, H: 0.88, legTop: 0.148, legMat: 'plastic', out: [{ id: 'lazio-236' }] },
+  lazio1c: { src: 'lazio', from: { W: 3.36, D: 1.45, H: 0.88 }, ops: [['cut', -0.47, 0.53]], W: 2.36, D: 1.45, H: 0.88, legTop: 0.148, legMat: 'plastic', smooth: [{ side: 0.07, y: [0.25, 0.60], sheetX: 0.03, strict: true, iters: 4 }, { side: 0.12, y: [0.40, 0.66], z: [0.02, 0.20], iters: 30, margin: 0.015 }], out: [{ id: 'lazio-236' }] },
   tokio1c: { src: 'tokio', from: { W: 3.10, D: 1.43, H: 0.88 }, ops: [['cut', -0.44, 0.44]], W: 2.20, D: 1.43, H: 0.88, legTop: 0.095, legMat: 'plastic', out: [{ id: 'tokio-220-chaise' }] },
   tokio2: { src: 'tokio', from: { W: 3.10, D: 1.43, H: 0.88 }, ops: [['mirror', 0.44]], W: 2.20, D: 0.93, H: 0.88, legTop: 0.095, legMat: 'plastic', out: [{ id: 'tokio-220' }] },
   tokioP: { src: 'tokio', from: { W: 3.10, D: 1.43, H: 0.88 }, ops: [['mirror', 1.025]], W: 1.05, D: 0.93, H: 0.88, legTop: 0.095, legMat: 'plastic', out: [{ id: 'tokio-poltrona-105' }] },
@@ -205,14 +205,24 @@ function classify(pos, idx, c, W, part) {
     const a = idx[t] * 3, b = idx[t + 1] * 3, d = idx[t + 2] * 3;
     const cx = Math.abs((pos[a] + pos[b] + pos[d]) / 3), cy = (pos[a + 1] + pos[b + 1] + pos[d + 1]) / 3, cz = (pos[a + 2] + pos[b + 2] + pos[d + 2]) / 3;
     let k = 0;
+    // face virada para fora (lateral do encosto/assento), usada para não pintar o estofado de madeira
+    let outward = 0;
+    if (c.sideFace) {
+      const e1 = [pos[b] - pos[a], pos[b + 1] - pos[a + 1], pos[b + 2] - pos[a + 2]], e2 = [pos[d] - pos[a], pos[d + 1] - pos[a + 1], pos[d + 2] - pos[a + 2]];
+      const nx = e1[1] * e2[2] - e1[2] * e2[1], ny = e1[2] * e2[0] - e1[0] * e2[2], nz = e1[0] * e2[1] - e1[1] * e2[0];
+      outward = (nx * Math.sign(pos[a] + pos[b] + pos[d])) / (Math.hypot(nx, ny, nz) || 1);
+    }
+    const estofado = c.sideFace && outward > 0.6 && cx < c.sideFace;
     if (cy < c.legTop) k = legCls;
+    // braço de madeira (régua) numa faixa de altura: madeira, menos a lateral do encosto logo atrás dele
+    else if (c.rail && cy > c.rail.y[0] && cy < c.rail.y[1] && cx > c.rail.x && !estofado) k = 1;
     // postes de madeira que sobem pela lateral do estofado (Puff Belle): ficam para fora da face
     else if (c.posts && cx > c.posts.x[0] && cx < c.posts.x[1] && Math.abs(cz) > c.posts.z && cy < c.posts.y) k = legCls;
     else if (thinV && thinV[idx[t]] + thinV[idx[t + 1]] + thinV[idx[t + 2]] >= 2) k = 1;
     else if (c.sideFrameX && cx > c.sideFrameX) k = 1; // moldura de madeira na lateral do braço
     else if (c.sidePost && cx > c.sidePost.x && cy < c.sidePost.y) k = 1; // pés que sobem ao lado do assento até o braço (Melissa)
-    else if (f && cy > f.arm[0] && cy < f.arm[1] && cx > f.armX) k = 1;
-    else if (f && cx > f.inner && mask.has(key(cy, cz))) k = 1;
+    else if (f && cy > f.arm[0] && cy < f.arm[1] && cx > f.armX && !estofado) k = 1;
+    else if (f && cx > f.inner && mask.has(key(cy, cz)) && !estofado) k = 1;
     else if (f && f.post && cy >= f.arm[1] && cx > f.post) k = 1;
     else if (c.rear && cz < c.rear.z && cy > c.rear.y[0] && cy < c.rear.y[1]) {
       // ripas de madeira nas costas: faces voltadas para trás
@@ -225,6 +235,90 @@ function classify(pos, idx, c, W, part) {
   if (c.refine) refineLabels(pos, idx, lab, c, legCls);
   for (let t = 0; t < lab.length; t++) out[lab[t]].push(idx[t * 3], idx[t * 3 + 1], idx[t * 3 + 2]);
   return out;
+}
+
+// Alisamento de Taubin (não encolhe) só dentro de caixas { x:[|x| mín, máx], y:[..], z:[..], iters }, com borda suave de 2 cm.
+// depois de alisar, volta às medidas exatas do catálogo (largura W, fundo D, altura H; centrado e no chão)
+function refit(pos, W, c) {
+  const mn = [1e9, 1e9, 1e9], mx = [-1e9, -1e9, -1e9];
+  for (let i = 0; i < pos.length; i += 3) for (let a = 0; a < 3; a++) { mn[a] = Math.min(mn[a], pos[i + a]); mx[a] = Math.max(mx[a], pos[i + a]); }
+  const s = [W / (mx[0] - mn[0]), c.H / (mx[1] - mn[1]), c.D / (mx[2] - mn[2])];
+  for (let i = 0; i < pos.length; i += 3) {
+    pos[i] = (pos[i] - (mn[0] + mx[0]) / 2) * s[0]; pos[i + 1] = (pos[i + 1] - mn[1]) * s[1]; pos[i + 2] = (pos[i + 2] - (mn[2] + mx[2]) / 2) * s[2];
+  }
+}
+
+function smoothRegions(pos, idx, regions, W) {
+  const N = pos.length / 3, nb = Array.from({ length: N }, () => new Set());
+  for (let t = 0; t < idx.length; t += 3) for (let k = 0; k < 3; k++) { const a = idx[t + k], b = idx[t + (k + 1) % 3]; nb[a].add(b); nb[b].add(a); }
+  const lists = nb.map((s) => [...s]);
+  const ramp = (v, lo, hi, m) => Math.min(1, Math.max(0, Math.min(v - lo, hi - v) / m));
+  for (const r0 of regions) {
+    // side: a faixa de |x| fica medida a partir da lateral (serve para vários tamanhos do mesmo sofá)
+    const r = r0.side ? { ...r0, x: [W / 2 - r0.side, W / 2 + 0.1] } : r0;
+    const m = r.margin ?? 0.02, w = new Float32Array(N);
+    for (let i = 0; i < N; i++) {
+      const ax = Math.abs(pos[i * 3]), y = pos[i * 3 + 1], z = pos[i * 3 + 2];
+      const wx = ramp(ax, r.x[0], r.x[1], m), wy = ramp(y, r.y[0], r.y[1], m), wz = ramp(z, (r.z || [-9, 9])[0], (r.z || [-9, 9])[1], m);
+      w[i] = Math.min(wx, wy, wz);
+    }
+    if (r.sheetX) {
+      // lateral quase plana: |x| vira uma "chapa" lisa H(y,z) (mediana por célula + desfoque), o que some com dobras e abas soltas
+      const cs = 0.02, cells = new Map(), key = (a, b) => a + ',' + b;
+      const nrm = vertexNormals(pos, idx);
+      for (let i = 0; i < N; i++) {
+        if (w[i] <= 0) continue;
+        const ax = Math.abs(pos[i * 3]), sx = Math.sign(pos[i * 3]) || 1;
+        if (nrm[i * 3] * sx < 0.5) continue; // só a face virada para fora
+        const k = key(Math.round(pos[i * 3 + 1] / cs), Math.round(pos[i * 3 + 2] / cs));
+        (cells.get(k) || cells.set(k, []).get(k)).push(ax);
+      }
+      const med = new Map();
+      for (const [k, v] of cells) { v.sort((a, b) => a - b); med.set(k, v[v.length >> 1]); }
+      const Hs = (y, z) => { // desfoque gaussiano (sigma ~ r.sheetX cm) das medianas vizinhas
+        const yi = Math.round(y / cs), zi = Math.round(z / cs), R = Math.ceil((r.sheetX * 2) / cs);
+        let sw = 0, sv = 0;
+        for (let dy = -R; dy <= R; dy++) for (let dz = -R; dz <= R; dz++) {
+          const v = med.get(key(yi + dy, zi + dz)); if (v === undefined) continue;
+          const d2 = ((yi + dy) * cs - y) ** 2 + ((zi + dz) * cs - z) ** 2, g = Math.exp(-d2 / (2 * r.sheetX * r.sheetX));
+          sw += g; sv += g * v;
+        }
+        return sw > 0 ? sv / sw : null;
+      };
+      let moved = 0;
+      for (let i = 0; i < N; i++) {
+        if (w[i] <= 0) continue;
+        const sx = Math.sign(pos[i * 3]) || 1;
+        if (nrm[i * 3] * sx < 0.2 && (r.strict || Math.abs(pos[i * 3]) < r.x[0] + 0.03)) continue;
+        const h = Hs(pos[i * 3 + 1], pos[i * 3 + 2]); if (h === null) continue;
+        pos[i * 3] = sx * (Math.abs(pos[i * 3]) + w[i] * (h - Math.abs(pos[i * 3]))); moved++;
+      }
+      console.log('  chapa lateral: ', moved, 'vértices');
+    }
+    const tmp = new Float32Array(pos.length);
+    for (let it = 0; it < (r.iters || 20); it++) for (const f of [0.5, -0.53]) {
+      tmp.set(pos);
+      for (let i = 0; i < N; i++) {
+        if (w[i] <= 0 || !lists[i].length) continue;
+        for (let j = 0; j < 3; j++) {
+          let s = 0; for (const n of lists[i]) s += tmp[n * 3 + j];
+          pos[i * 3 + j] = tmp[i * 3 + j] + f * w[i] * (s / lists[i].length - tmp[i * 3 + j]);
+        }
+      }
+    }
+  }
+}
+
+function vertexNormals(pos, idx) {
+  const n = new Float32Array(pos.length);
+  for (let t = 0; t < idx.length; t += 3) {
+    const a = idx[t] * 3, b = idx[t + 1] * 3, c = idx[t + 2] * 3;
+    const e1 = [pos[b] - pos[a], pos[b + 1] - pos[a + 1], pos[b + 2] - pos[a + 2]], e2 = [pos[c] - pos[a], pos[c + 1] - pos[a + 1], pos[c + 2] - pos[a + 2]];
+    const f = [e1[1] * e2[2] - e1[2] * e2[1], e1[2] * e2[0] - e1[0] * e2[2], e1[0] * e2[1] - e1[1] * e2[0]];
+    for (const v of [a, b, c]) for (let j = 0; j < 3; j++) n[v + j] += f[j];
+  }
+  for (let i = 0; i < n.length; i += 3) { const L = Math.hypot(n[i], n[i + 1], n[i + 2]) || 1; n[i] /= L; n[i + 1] /= L; n[i + 2] /= L; }
+  return n;
 }
 
 // Corta os triângulos que atravessam o plano y = y0 (a linha do topo do pé fica reta).
@@ -363,7 +457,7 @@ async function writeGLB(part, groups, file) {
   fabric.setExtension('KHR_materials_sheen', sheenExt.createSheen().setSheenColorFactor([0.5, 0.5, 0.52]).setSheenRoughnessFactor(0.55));
   fabric.setExtension('KHR_materials_specular', specExt.createSpecular().setSpecularFactor(0.25));
   const mats = [fabric,
-    doc.createMaterial('Madeira').setBaseColorFactor([0.21, 0.08, 0.03, 1]).setRoughnessFactor(0.42).setMetallicFactor(0),
+    doc.createMaterial('Madeira').setBaseColorFactor([0.21, 0.08, 0.03, 1]).setRoughnessFactor(0.62).setMetallicFactor(0),
     doc.createMaterial('Pes').setBaseColorFactor([0.025, 0.022, 0.02, 1]).setRoughnessFactor(0.45).setMetallicFactor(0)];
   const n = part.pos.length / 3, color = new Uint8Array(n * 4);
   for (let i = 0; i < n; i++) { const v = Math.round(part.ao[i] * 255); color.set([v, v, v, 255], i * 4); }
@@ -398,6 +492,8 @@ for (const [name, c] of Object.entries(CFG)) {
   for (const o of c.out) {
     const W = o.W || c.W;
     let pos = fit(src, c, W), idx = src.idx;
+    // alisa regiões com dobras/amassados que a IA criou (ex.: lateral da Dalian)
+    if (c.smooth) { smoothRegions(pos, idx, c.smooth, W); refit(pos, W, c); }
     // corta a malha no plano do topo do pé: a linha madeira/tecido fica reta
     if (c.refine) ({ pos, idx } = splitAtY(pos, idx, c.legTop));
     const part = { pos, idx, nrm: smoothNormals(pos, idx) };

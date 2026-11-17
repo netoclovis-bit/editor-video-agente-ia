@@ -56,10 +56,11 @@ O dono testou no quarto e aprovou. Pediu para melhorar a qualidade de cada peça
 
 1. ~~**Puff Belle** — o tecido cobre o alto dos pés de madeira.~~ Feito: opção `posts` em `CFG`.
 2. ~~**Poltronas com moldura de madeira (Ágata, Topázio, Safira, Itália, Melissa)** — manchas de tecido sobre a madeira.~~ Feito: opção `refine` (corte mínimo que leva a fronteira madeira/tecido para os vincos, sem serrilhado; o pé cortado reto em `legTop`). Rubi e Pérola com o topo do pé reto; Melissa com os pés subindo até o braço (`sidePost`).
-3. **Dalian** — superfície do braço e da lateral com amassados e "rasgos" na textura; falta acabamento em detalhes. Suavizar a malha nessas regiões ou refazer o modelo.
-4. **Pés faltando ou tecido por cima da madeira** nos sofás: revisar um por um.
+3. ~~**Dalian** — dobra/"rasgo" na lateral; courino parecendo amassado.~~ Feito: opção `smooth` com `sheetX` (a lateral vira uma chapa lisa) e a página tira o relevo de trama quando o tecido é courino.
+4. ~~Revisão de todo o site (23 modelos, 33 tamanhos).~~ Feito: Doha/Dalian reclinando com hastes de metal no apoio de pés (`build-reclina.mjs`); Pérola e Melissa sem ondas/amassados; Berlim com o bloco de madeira do pé; Ágata/Topázio/Safira limpas vistas de lado (`rail`, `sideFace`); marquinhas nos braços de Paris, Istambul, Lazio, Ibiza, Florenza e Berlim removidas (`smooth` com caixa local); madeira acetinada (rugosidade 0,62); na página a trena some vista por trás e o modelo novo abre de frente.
 
-Para conferir a madeira/tecido de um modelo: `node tools/mapax.mjs saida/modelo.glb` (mapa de altura × profundidade com o material da face mais de fora) e `node tools/fatias.mjs saida/modelo.glb 0.1 0.4` (onde o pé vira corpo).
+Ferramentas de conferência: `node tools/mapax.mjs saida/modelo.glb` (mapa de altura × profundidade com o material da face mais de fora), `node tools/fatias.mjs saida/modelo.glb 0.1 0.4` (onde o pé vira corpo), `node tools/bracos.mjs saida/*.glb` (topo dos braços), `node tools/dobras.mjs saida/modelo.glb 0.3 0.003 6 -1.0` (acha dobras e marquinhas). Depois de alisar, `process-ia.mjs` volta às medidas exatas do catálogo.
+
 5. Para peças que a IA errou na forma, **gerar de novo** no PC (RTX 3060, 12 GB) com **Hunyuan3D-2mv** (várias fotos: frente, lado, costas), em vez de uma foto só. Depois passar pelo `process-ia.mjs`.
 
 Ideia para o futuro: **PartCrafter** gera o móvel já separado em peças (encosto, assento, braços), o que deixaria as animações de reclinar e abrir mais perfeitas.

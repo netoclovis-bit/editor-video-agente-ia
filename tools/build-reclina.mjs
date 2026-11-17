@@ -1,7 +1,7 @@
 // Poltronas reclináveis (3D das fotos, peça única): cria a animação "Abrir"
 //  - encosto inclina para trás (malha com "pele": o tecido dobra na junção com o assento e nas abas)
 //  - painel de baixo da frente vira o apoio de pés: sai girando para a frente e sobe até perto do assento
-//  - atrás do painel fica um vão escuro (o mecanismo), visível só com a poltrona aberta
+//  - atrás do painel fica um vão forrado (sombra) e hastes de metal ligam o apoio de pés à poltrona
 // Uso: node build-reclina.mjs <entrada.glb> <saida.glb> <doha|dalian>
 import { NodeIO } from '@gltf-transform/core';
 import { KHRMaterialsSheen, KHRMaterialsSpecular } from '@gltf-transform/extensions';
@@ -196,9 +196,24 @@ function partMesh(name, mat, front, flat, origin, ao) {
     .setIndices(acc('SCALAR', Uint32Array.from(idx)));
   return doc.createMesh(name).addPrimitive(p);
 }
-const darkMat = doc.createMaterial('Mecanismo').setBaseColorFactor([0.035, 0.032, 0.03, 1]).setRoughnessFactor(0.85).setMetallicFactor(0);
+// vão atrás do apoio: forrado com o mesmo tecido, mais escuro (sombra), em vez de um buraco preto
+const metalMat = doc.createMaterial('Mecanismo').setBaseColorFactor([0.075, 0.075, 0.08, 1]).setRoughnessFactor(0.45).setMetallicFactor(0.7);
 const footMesh = partMesh('ApoioPes', fabricMat, panel, footSide, hinge, 200);
-const cavMesh = partMesh('Vao', darkMat, [], cav, [0, 0, 0], 255);
+const cavMesh = partMesh('Vao', fabricMat, [], cav, [0, 0, 0], 50);
+// haste metálica: caixa de 1 m ao longo de +z (a animação estica até o tamanho certo)
+function barMesh() {
+  const w = 0.005, h = 0.012, c = [];
+  const v = (x, y, z) => [x, y, z];
+  const q = (a, b, c2, d) => { c.push([a, b, c2], [a, c2, d]); };
+  const p = [v(-w, -h, 0), v(w, -h, 0), v(w, h, 0), v(-w, h, 0), v(-w, -h, 1), v(w, -h, 1), v(w, h, 1), v(-w, h, 1)];
+  q(p[0], p[3], p[2], p[1]); q(p[4], p[5], p[6], p[7]); q(p[0], p[1], p[5], p[4]); q(p[3], p[7], p[6], p[2]); q(p[1], p[2], p[6], p[5]); q(p[0], p[4], p[7], p[3]);
+  const f = flatPart(c);
+  const prim = doc.createPrimitive().setMaterial(metalMat)
+    .setAttribute('POSITION', acc('VEC3', Float32Array.from(f.pos))).setAttribute('NORMAL', acc('VEC3', Float32Array.from(f.nrm)))
+    .setIndices(acc('SCALAR', Uint32Array.from(f.pos.map((_, i) => i).filter((i) => i < f.pos.length / 3))));
+  return doc.createMesh('Haste').addPrimitive(prim);
+}
+const barM = barMesh();
 
 // ---------- nós, esqueleto e animação ----------
 const scene = root.listScenes()[0], sofaNode = root.listNodes().find((n) => n.getMesh() === mesh);
@@ -221,10 +236,47 @@ const sampler = (times, vals, type) => doc.createAnimationSampler().setInput(acc
 const sBack = sampler(bT, bA.map(qx), 'VEC4');
 const sFootR = sampler(fT, fA.map(qx), 'VEC4');
 const sFootT = sampler(fT, fT.map((_, i) => [0, hinge[1] + fDy[i] * (F.yOpen - hinge[1]), hinge[2] + fDz[i] * F.dz]), 'VEC3');
-doc.createAnimation('Abrir').addSampler(sBack).addSampler(sFootR).addSampler(sFootT)
+const anim = doc.createAnimation('Abrir').addSampler(sBack).addSampler(sFootR).addSampler(sFootT)
   .addChannel(doc.createAnimationChannel().setTargetNode(nBack).setTargetPath('rotation').setSampler(sBack))
   .addChannel(doc.createAnimationChannel().setTargetNode(nFoot).setTargetPath('rotation').setSampler(sFootR))
   .addChannel(doc.createAnimationChannel().setTargetNode(nFoot).setTargetPath('translation').setSampler(sFootT));
+
+// ---------- mecanismo: hastes de metal ligando o vão ao lado de baixo do apoio de pés ----------
+// posição do apoio no tempo t (mesma interpolação linear da animação acima)
+const lerpKeys = (times, vals, t) => {
+  if (t <= times[0]) return vals[0];
+  for (let i = 1; i < times.length; i++) if (t <= times[i]) { const k = (t - times[i - 1]) / (times[i] - times[i - 1]); return vals[i - 1] + k * (vals[i] - vals[i - 1]); }
+  return vals[vals.length - 1];
+};
+const footPoint = (t, ly, lz) => {
+  const a = (lerpKeys(fT, fA, t) * Math.PI) / 180, dy = lerpKeys(fT, fDy, t), dz = lerpKeys(fT, fDz, t);
+  const ty = hinge[1] + dy * (F.yOpen - hinge[1]), tz = hinge[2] + dz * F.dz;
+  return [ty + ly * Math.cos(a) - lz * Math.sin(a), tz + ly * Math.sin(a) + lz * Math.cos(a)];
+};
+const zPiv = hinge[2] - F.cav + 0.015, H = F.y1 - F.y0;
+const LINKS = [ // [pivô no corpo (y), ponto no apoio (ly)]
+  [F.y1 - 0.03, -0.05],
+  [F.y0 + 0.05, -Math.min(0.13, H * 0.68)],
+];
+const NS = 30, times = Array.from({ length: NS + 1 }, (_, k) => (k * ANIM) / NS);
+let maxLen = 0;
+for (const sx of [-1, 1]) for (const [yPiv, ly] of LINKS) {
+  const x = sx * (F.x - 0.03);
+  const node = doc.createNode('Haste').setMesh(barM).setTranslation([x, yPiv, zPiv]);
+  scene.addChild(node);
+  const rots = [], scl = [];
+  for (const t of times) {
+    const [py, pz] = footPoint(t, ly, -F.thick + 0.004);
+    const dy = py - yPiv, dz = pz - zPiv, L = Math.hypot(dy, dz), th = Math.atan2(-dy, dz);
+    rots.push([Math.sin(th / 2), 0, 0, Math.cos(th / 2)]); scl.push([1, 1, Math.max(L, 0.001)]); maxLen = Math.max(maxLen, L);
+  }
+  const sR = sampler(times, rots, 'VEC4'), sS = sampler(times, scl, 'VEC3');
+  node.setRotation(rots[0]).setScale(scl[0]);
+  anim.addSampler(sR).addSampler(sS)
+    .addChannel(doc.createAnimationChannel().setTargetNode(node).setTargetPath('rotation').setSampler(sR))
+    .addChannel(doc.createAnimationChannel().setTargetNode(node).setTargetPath('scale').setSampler(sS));
+}
+console.log(NAME, 'mecanismo: 4 hastes, até', maxLen.toFixed(2), 'm');
 root.getAsset().generator = 'Provador 3D Artflex (forma por IA, medidas do catálogo, reclinável animada)';
 await io.write(OUT, doc);
 
