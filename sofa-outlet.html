@@ -172,6 +172,7 @@ h1 { font: 700 clamp(32px, 3.8vw, 44px)/1 var(--font-display); letter-spacing: -
 .opt input:checked + .model-card { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
 .opt input:focus-visible + .model-card { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.opt { position: relative; } /* o rádio escondido fica dentro do cartão (senão alarga a página no celular) */
 .opt input { position: absolute; opacity: 0; pointer-events: none; }
 .size-card {
   display: flex; flex-direction: column; gap: 2px; padding: 11px 10px 10px; cursor: pointer;
