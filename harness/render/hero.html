@@ -1,0 +1,13 @@
+<!doctype html><html><head><script type="module" src="model-viewer.min.js"></script>
+<style>html,body{margin:0;background:transparent} model-viewer{width:100vw;height:100vh;background:transparent;--poster-color:transparent}</style></head><body>
+<model-viewer id="mv" shadow-intensity="1.1" shadow-softness="0.8" exposure="1.05" interaction-prompt="none" camera-orbit="-32deg 76deg auto" field-of-view="26deg"></model-viewer>
+<script type="module">
+const p=new URLSearchParams(location.search); const mv=document.getElementById('mv');
+if(p.get('orbit')) mv.cameraOrbit=p.get('orbit');
+mv.addEventListener('load',async()=>{
+  const [b,s,sr,r]=JSON.parse(p.get('color')); const m=mv.model.materials.find(m=>m.name==='Tecido');
+  m.pbrMetallicRoughness.setBaseColorFactor([...b,1]); m.setSheenColorFactor(s); if(sr!=null) m.setSheenRoughnessFactor(sr); if(r!=null) m.pbrMetallicRoughness.setRoughnessFactor(r);
+  if(p.get('t')!=null){ mv.animationName='Abrir'; mv.play(); mv.pause(); await new Promise(r=>setTimeout(r,300)); mv.currentTime=+p.get('t'); }
+  setTimeout(()=>{window.__ready=true},1800)});
+mv.src=p.get('src');
+</script></body></html>

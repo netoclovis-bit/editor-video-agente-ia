@@ -1,0 +1,4 @@
+node_modules/
+saida/
+harness/render/saida/
+*.glb.txt

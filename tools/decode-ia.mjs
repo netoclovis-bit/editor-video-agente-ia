@@ -1,0 +1,13 @@
+import { NodeIO } from '@gltf-transform/core';
+import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
+import { weld, normals } from '@gltf-transform/functions';
+import draco3d from 'draco3dgltf';
+const [inp, out] = process.argv.slice(2);
+const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'draco3d.decoder': await draco3d.createDecoderModule() });
+const doc = await io.read(inp);
+for (const e of doc.getRoot().listExtensionsUsed()) e.dispose();
+await doc.transform(weld(), normals({ overwrite: true }));
+const mat = doc.createMaterial('Tecido').setBaseColorFactor([0.45, 0.43, 0.40, 1]).setRoughnessFactor(0.9);
+for (const m of doc.getRoot().listMeshes()) for (const p of m.listPrimitives()) p.setMaterial(mat);
+await new NodeIO().write(out, doc);
+console.log('ok', out);

@@ -1,0 +1,13 @@
+<!doctype html><html><head><script type="module" src="model-viewer.min.js"></script>
+<style>body{margin:0;background:#ddd} model-viewer{width:900px;height:600px;background:#ecebe8}</style></head><body>
+<model-viewer id="mv" camera-orbit="-28deg 72deg auto" shadow-intensity="1" shadow-softness="0.9" interaction-prompt="none"></model-viewer>
+<script type="module">
+const p=new URLSearchParams(location.search); const mv=document.getElementById('mv');
+if(p.get('orbit')) mv.cameraOrbit=p.get('orbit');
+mv.addEventListener('load',async()=>{
+  if(p.get('color')){ const [b,s,sr,r]=JSON.parse(p.get('color')); const m=mv.model.materials.find(m=>m.name==='Tecido'); m.pbrMetallicRoughness.setBaseColorFactor([...b,1]); m.setSheenColorFactor(s); if(sr!=null) m.setSheenRoughnessFactor(sr); if(r!=null) m.pbrMetallicRoughness.setRoughnessFactor(r); }
+  if(p.get("t")!=null){ mv.animationName="Abrir"; mv.play(); mv.pause(); await new Promise(r=>setTimeout(r,300)); mv.currentTime=+p.get("t"); await new Promise(r=>setTimeout(r,500)); }
+  if(p.get("open")){ mv.animationName="Abrir"; mv.play({repetitions:1}); await new Promise(r=>setTimeout(r,2500)); }
+  setTimeout(()=>{window.__ready=true},1500)});
+mv.src=p.get('src')||'gen/sofa-230.glb';
+</script></body></html>
