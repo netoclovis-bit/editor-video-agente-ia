@@ -763,6 +763,7 @@ function fabric(hex, acab) {
   return { base, sheen };
 }
 let colorToken = 0;
+const tramaOriginal = new WeakMap();
 async function applyColor() {
   const mat = mv.model && mv.model.materials.find((m) => m.name === 'Tecido');
   if (!mat) return;
@@ -772,6 +773,13 @@ async function applyColor() {
   mat.pbrMetallicRoughness.setRoughnessFactor(a.rough);
   mat.setSheenColorFactor(sheen);
   mat.setSpecularFactor(a.spec);
+  // courino é liso: o relevo de trama do tecido faz o couro parecer amassado (volta ao escolher um tecido)
+  const nt = mat.normalTexture;
+  if (nt) {
+    if (!tramaOriginal.has(mat)) tramaOriginal.set(mat, nt.texture);
+    const quer = f.acabamento === 'couro' ? null : tramaOriginal.get(mat);
+    if (nt.texture !== quer) nt.setTexture(quer);
+  }
   try {
     const tex = await mv.createTexture(f.textura);
     if (token !== colorToken || !tex || !mat.pbrMetallicRoughness.baseColorTexture) return;
