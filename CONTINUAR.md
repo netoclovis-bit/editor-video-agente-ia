@@ -65,6 +65,11 @@ Ferramentas de conferência: `node tools/mapax.mjs saida/modelo.glb` (mapa de al
 
 Ideia para o futuro: **PartCrafter** gera o móvel já separado em peças (encosto, assento, braços), o que deixaria as animações de reclinar e abrir mais perfeitas.
 
+## Câmera ("Ver na minha sala")
+
+- **Android (Chrome):** a câmera roda dentro da página (WebXR). Aparece um painel pequeno por cima: nome, botão Reclinar/Abrir e a barra de tecidos e cores (abre e recolhe; lembra a escolha) com o botão de orçamento. Retrátil das fotos só abre na câmera se já estiver aberto no 3D antes (trocar de arquivo no meio da câmera não funciona).
+- **iPhone:** a câmera é da Apple. A página põe no endereço do 3D a faixa da Apple com o botão "Trocar tecido" (volta para os tecidos). A poltrona vai para a sala do jeito que está no 3D: reclinada usa o arquivo com a pose fixa (`arAberta`, feito com `node tools/bake-pose.mjs saida/doha-085-rec.glb doha-085-rec-aberta.glb`), porque o iPhone não leva a pose do esqueleto.
+
 ## Detalhes que importam
 
 - Medidas sempre as do catálogo Artflex/ArtForms 2026. Medida estimada (poltrona reclinada) aparece com "≈".

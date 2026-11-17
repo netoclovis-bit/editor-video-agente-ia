@@ -39,7 +39,7 @@ with tempfile.TemporaryDirectory() as t:
 
 # Confere se todo arquivo citado na página existe na pasta do site.
 pagina = open(os.path.join(site, 'sofa-outlet.html'), encoding='utf-8').read()
-citados = set(re.findall(r"(?:arquivo|arquivoFoto|foto|textura): '([^']+)'", pagina))
+citados = set(re.findall(r"(?:arquivo|arquivoFoto|arAberta|foto|textura): '([^']+)'", pagina))
 faltando = sorted(f for f in citados if not os.path.exists(os.path.join(site, f)))
 if faltando:
     print('ATENÇÃO, faltam no site:', ', '.join(faltando))
