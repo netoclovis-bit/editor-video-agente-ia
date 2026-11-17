@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Provador 3D Sofá Outlet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: palco 3D grande + ficha do produto ao lado (desktop) ou abaixo (celular). Identidade Sofá Outlet: creme e marrom da logo; no escuro, preto e dourado dos posts. A trena amarela marca as medidas reais. */
+:root {
+  --bg: #f7f3e8; --surface: #fffdf6; --ink: #2e302b; --muted: #6b665a; --line: #e3dbc9; --brand: #87603a; --brand-ink: #fffaf0; --accent: #87603a; --accent-ink: #fffaf0; --accent-soft: #f1e6d2; --stage-a: #fffef8; --stage-b: #ebe3d1;
+  --tape: #fbba00; --tape-ink: #1a1400;
+  --good: #23704a; --warn: #93600f; --bad: #a8352a;
+  --shadow: 0 1px 2px rgb(40 30 20 / 0.07), 0 8px 24px rgb(40 30 20 / 0.08);
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r-lg: 20px;
+  --r-md: 12px;
+  --r-sm: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121110; --surface: #1c1a17; --ink: #f3ede0; --muted: #aaa292; --line: #342f28; --brand: #c9a35a; --brand-ink: #17130b; --accent: #d4b06a; --accent-ink: #17130b; --accent-soft: #2e2617; --stage-a: #2b2823; --stage-b: #151412;
+    --good: #66c891; --warn: #e5a84e; --bad: #f08176;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121110; --surface: #1c1a17; --ink: #f3ede0; --muted: #aaa292; --line: #342f28; --brand: #c9a35a; --brand-ink: #17130b; --accent: #d4b06a; --accent-ink: #17130b; --accent-soft: #2e2617; --stage-a: #2b2823; --stage-b: #151412;
+  --good: #66c891; --warn: #e5a84e; --bad: #f08176;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.3);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.5 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* topo */
+.top { padding-block: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.store { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.store-logo { display: block; height: 62px; width: auto; flex: none; }
+.store-logo[src$="loja-sofa-outlet.png"], .mark-dark { border-radius: 50%; box-shadow: 0 0 0 1px var(--line); }
+.mark-dark { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark-light { display: none; } :root:not([data-theme="light"]) .mark-dark { display: block; } }
+:root[data-theme="dark"] .mark-light { display: none; }
+:root[data-theme="dark"] .mark-dark { display: block; }
+.store-txt { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.store b { font: 700 clamp(24px, 2.8vw, 32px)/1.05 var(--font-display); letter-spacing: 0.005em; }
+.store span { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.brand { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.brand small { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.logo { display: block; height: 58px; width: auto; max-width: 100%; }
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark { display: block; }
+@media (max-width: 520px) { .logo { height: 36px; } .brand small { display: none; } .store { gap: 9px; } .store-logo { height: 46px; } .store b { font-size: 20px; } .store span { font-size: 10px; letter-spacing: 0.05em; } }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+
+.inapp { margin-bottom: 12px; padding: 12px 14px; border-radius: var(--r-md); background: var(--tape); color: var(--tape-ink); display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; font-weight: 500; }
+.inapp a { color: inherit; font-weight: 700; }
+
+/* grade principal */
+.shop { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; padding-bottom: 32px; }
+@media (max-width: 900px) { .shop { display: flex; flex-direction: column; align-items: stretch; gap: 16px; } }
+
+/* palco 3D */
+.stage {
+  position: sticky; top: max(16px, env(safe-area-inset-top, 0px));
+  height: min(80vh, 700px); min-height: 420px;
+  border-radius: var(--r-lg); overflow: hidden;
+  background: radial-gradient(ellipse 80% 70% at 50% 38%, var(--stage-a), var(--stage-b));
+  box-shadow: var(--shadow);
+}
+/* no celular o sofá fica preso no topo e as opções rolam logo abaixo dele */
+@media (max-width: 900px) {
+  .stage { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; height: 46vh; height: clamp(280px, 46svh, 440px); min-height: 0; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+}
+@media (max-width: 520px) { .tools .chip { display: none; } .hint { display: none; } }
+model-viewer { width: 100%; height: 100%; background: transparent; --poster-color: transparent; --progress-bar-height: 0px; }
+.progress { position: absolute; left: 0; top: 0; height: 3px; width: 0; background: var(--brand); transition: width 0.2s, opacity 0.4s; z-index: 3; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-weight: 500; pointer-events: none; }
+
+.tools { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; flex-wrap: wrap; pointer-events: none; }
+.tools > * { pointer-events: auto; }
+.tools .chip { background: color-mix(in srgb, var(--surface) 88%, transparent); color: var(--muted); backdrop-filter: blur(6px); }
+.toggles { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.tg {
+  display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 13px;
+  border-radius: 999px; border: 1px solid var(--line); cursor: pointer;
+  background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(6px);
+  font-size: 13.5px; font-weight: 600;
+}
+.tg svg { width: 17px; height: 17px; flex: none; }
+.tg[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tg:hover { border-color: var(--muted); }
+
+.bottom { position: absolute; left: 12px; right: 12px; bottom: 14px; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
+.bottom > * { pointer-events: auto; }
+.ar-btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 19px 0 15px;
+  border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--brand); color: var(--brand-ink);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.01em;
+  box-shadow: 0 5px 14px rgb(0 0 0 / 0.2);
+}
+.ar-btn svg { width: 19px; height: 19px; }
+.ar-btn:hover { filter: brightness(1.06); }
+@media (max-width: 520px) { .bottom { bottom: 10px; } .ar-btn { height: 40px; padding: 0 16px 0 13px; gap: 7px; font-size: 14px; } .ar-btn svg { width: 17px; height: 17px; } }
+.hint { font-size: 12.5px; color: var(--muted); background: color-mix(in srgb, var(--surface) 80%, transparent); padding: 3px 10px; border-radius: 999px; }
+
+/* trena de medidas */
+.dim-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.dim-svg line { stroke: var(--tape); stroke-width: 2.25; stroke-linecap: round; }
+.dim-svg line.tick { stroke-width: 2.25; }
+.tape {
+  transform: translate(calc(-50% + var(--dx, 0px)), -50%);
+  font: 600 12.5px/1 var(--font-mono); font-variant-numeric: tabular-nums;
+  background: var(--tape); color: var(--tape-ink);
+  padding: 5px 8px 4px; border-radius: 4px; white-space: nowrap; pointer-events: none;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  background-image: repeating-linear-gradient(90deg, transparent 0 7px, rgb(0 0 0 / 0.16) 7px 8px);
+  background-size: 100% 4px; background-repeat: no-repeat; background-position: bottom;
+}
+model-viewer[data-side="-1"] #tapeH { transform: translate(7px, -50%); }
+model-viewer[data-side="1"] #tapeH { transform: translate(calc(-100% - 7px), -50%); }
+.tape small { font-weight: 500; opacity: 0.75; margin-left: 4px; font-size: 10.5px; }
+.pt { width: 1px; height: 1px; pointer-events: none; }
+model-viewer:not(.show-dims) .tape, model-viewer:not(.show-dims) .dim-svg { display: none; }
+model-viewer[ar-status="session-started"] .tape,
+model-viewer[ar-status="session-started"] .dim-svg,
+model-viewer[ar-status="session-started"] .bottom,
+model-viewer[ar-status="session-started"] .tools .chip,
+model-viewer[ar-status="session-started"] #tgDims { display: none; }
+
+/* ficha do produto */
+.panel { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.eyebrow { font: 600 14px/1 var(--font-display); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(32px, 3.8vw, 44px)/1 var(--font-display); letter-spacing: -0.01em; margin: 6px 0 10px; text-wrap: balance; }
+.lede { color: var(--muted); margin: 0; max-width: 46ch; }
+.group { display: flex; flex-direction: column; gap: 10px; }
+.group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.group-head h2 { font: 600 15px/1.2 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; margin: 0; }
+.group-head span { color: var(--muted); font-size: 14px; font-weight: 500; }
+
+.models { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.models-label { margin: 6px 0 -2px; font: 600 13px/1.2 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.model-card {
+  display: flex; flex-direction: column; gap: 1px; padding: 6px 8px 9px; cursor: pointer; height: 100%;
+  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+  transition: border-color 0.15s, background 0.15s;
+}
+.model-card img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; margin-bottom: 4px; }
+.model-card b { font: 700 16px/1.1 var(--font-display); }
+.model-card small { color: var(--muted); font-size: 12px; line-height: 1.25; }
+.opt input:checked + .model-card { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.opt input:focus-visible + .model-card { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.size-card {
+  display: flex; flex-direction: column; gap: 2px; padding: 11px 10px 10px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+  transition: border-color 0.15s, background 0.15s;
+}
+.size-card b { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.size-card small { color: var(--muted); font-size: 12.5px; }
+.opt input:checked + .size-card { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.opt input:focus-visible + .size-card, .opt input:focus-visible + .sw { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.spec { padding: 10px 12px; min-width: 0; }
+.spec + .spec { border-left: 1px solid var(--line); }
+.spec dt { font-size: 11.5px; color: var(--muted); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.spec dd { margin: 2px 0 0; font: 600 16px/1.25 var(--font-mono); font-variant-numeric: tabular-nums; }
+.spec dd small { display: block; font: 500 12px/1.3 var(--font-body); color: var(--muted); margin-top: 2px; }
+
+.fabrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.fab-card { display: grid; grid-template-columns: 30px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 7px; align-items: center; padding: 6px 8px; cursor: pointer; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface); }
+.fab-card img { grid-row: 1 / 3; width: 30px; height: 30px; border-radius: 6px; object-fit: cover; }
+.fab-card b { font-size: 13px; font-weight: 700; line-height: 1.1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fab-card small { font-size: 11px; color: var(--muted); line-height: 1.1; }
+.opt input:checked + .fab-card { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+.opt input:focus-visible + .fab-card { outline: 2px solid var(--accent); outline-offset: 2px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 12px; }
+.swatches .opt { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 58px; }
+.sw-name { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.15; }
+@media (max-width: 900px) {
+  .panel { gap: 16px; }
+  .g-model { order: 1; } .g-size { order: 2; } .g-color { order: 3; } .specs { order: 4; } .g-amb { order: 4; } .intro { order: 0; } .ficha { order: 6; } .fit { order: 7; } .buy { order: 8; }
+  .models { display: flex; overflow-x: auto; scroll-snap-type: x proximity; gap: 8px; padding: 2px 2px 6px; scrollbar-width: thin; }
+  .models .opt { flex: 0 0 118px; scroll-snap-align: start; }
+  .model-card b { font-size: 15px; }
+  .model-card small { font-size: 11px; }
+  .fabrics { display: flex; overflow-x: auto; gap: 6px; padding: 2px 2px 6px; scrollbar-width: thin; }
+  .fabrics .opt { flex: 0 0 122px; }
+}
+.sw {
+  display: block; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; position: relative;
+  background-size: cover; background-position: center;
+  border: 1px solid rgb(0 0 0 / 0.12);
+  box-shadow: inset 0 -6px 10px rgb(0 0 0 / 0.18), inset 0 4px 8px rgb(255 255 255 / 0.18);
+  transition: transform 0.12s;
+}
+.sw:hover { transform: scale(1.06); }
+.opt input:checked + .sw { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--ink), inset 0 -6px 10px rgb(0 0 0 / 0.18); }
+
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+.amb { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.amb button { padding: 0; border: 0; border-radius: var(--r-sm); overflow: hidden; cursor: zoom-in; background: var(--line); aspect-ratio: 16 / 9; }
+.amb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.2s; }
+.amb button:hover img { transform: scale(1.05); }
+.lb { position: fixed; inset: 0; z-index: 30; background: rgb(8 8 8 / 0.92); display: grid; grid-template-rows: minmax(0, 1fr) auto; place-items: center;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) max(14px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px)); }
+.lb img { max-width: 100%; max-height: 100%; border-radius: var(--r-md); object-fit: contain; }
+.lb-bar { display: flex; align-items: center; gap: 10px; padding-top: 12px; color: #f2efe9; font-size: 14px; }
+.lb-bar button { height: 42px; min-width: 42px; padding: 0 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / 0.3); background: rgb(255 255 255 / 0.08); color: #fff; cursor: pointer; font-weight: 600; }
+.lb-bar button:hover { background: rgb(255 255 255 / 0.18); }
+.ficha { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.ficha summary { cursor: pointer; padding: 12px 14px; font: 600 15px/1.2 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; list-style-position: inside; }
+.ficha ul { margin: 0; padding: 0 16px 14px 32px; display: grid; gap: 6px; color: var(--muted); font-size: 14px; }
+.fit { display: grid; gap: 10px; padding: 14px; border-radius: var(--r-md); border: 1px dashed var(--line); }
+.fit-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fit label { font-weight: 600; font-size: 14px; }
+.fit-input { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface); overflow: hidden; }
+.fit-input input { width: 84px; border: 0; background: transparent; padding: 8px 10px; font: 600 16px var(--font-mono); text-align: right; }
+.fit-input span { padding: 0 10px 0 0; color: var(--muted); font-weight: 600; }
+.fit-out { display: flex; gap: 8px; align-items: flex-start; font-weight: 500; }
+.fit-out .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; margin-top: 6px; background: var(--muted); }
+.fit-out[data-state="good"] .dot { background: var(--good); }
+.fit-out[data-state="warn"] .dot { background: var(--warn); }
+.fit-out[data-state="bad"] .dot { background: var(--bad); }
+.fit-note { font-size: 13.5px; color: var(--muted); margin: 0; }
+
+.cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 20px;
+  border-radius: var(--r-md); background: var(--ink); color: var(--bg); text-decoration: none;
+  font-weight: 700; font-size: 16px;
+}
+.cta svg { width: 22px; height: 22px; }
+.cta:hover { filter: brightness(1.15); }
+/* atalho logo abaixo do nome do produto (no celular fica colado no 3D) */
+.cta-top { min-height: 46px; margin-top: 14px; font-size: 15px; }
+.cta-top svg { width: 19px; height: 19px; }
+.msg { font-size: 13px; color: var(--muted); margin: 8px 2px 0; white-space: pre-line; }
+
+/* como funciona */
+.how { border-top: 1px solid var(--line); padding-block: 28px 12px; }
+.how h2 { font: 700 26px/1.1 var(--font-display); letter-spacing: 0; margin: 0 0 16px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
+@media (max-width: 720px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: start; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--tape); color: var(--tape-ink); font: 600 15px var(--font-mono); }
+.steps b { display: block; margin-bottom: 2px; }
+.steps p { margin: 0; color: var(--muted); font-size: 14px; }
+.foot { padding-block: 18px 28px; color: var(--muted); font-size: 13px; max-width: 72ch; }
+
+/* folha "ver na minha sala" */
+.sheet-bg { position: fixed; inset: 0; background: rgb(10 14 12 / 0.45); z-index: 20; display: grid; align-items: end; justify-items: center; }
+.sheet {
+  width: min(520px, 100%); background: var(--surface); color: var(--ink);
+  border-radius: var(--r-lg) var(--r-lg) 0 0; padding: 22px max(20px, env(safe-area-inset-left, 0px)) calc(20px + env(safe-area-inset-bottom, 0px));
+  box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px;
+}
+@media (min-width: 640px) { .sheet-bg { align-items: center; } .sheet { border-radius: var(--r-lg); } }
+.sheet h3 { font: 700 26px/1.1 var(--font-display); margin: 0; }
+.sheet p { margin: 0; color: var(--muted); }
+.sheet ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.sheet .row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.btn { height: 44px; padding: 0 18px; border-radius: var(--r-sm); border: 1px solid var(--line); background: transparent; cursor: pointer; font-weight: 600; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.url { display: flex; gap: 8px; align-items: center; }
+.url code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 9px 10px; border-radius: var(--r-sm); background: var(--bg); font: 500 13px var(--font-mono); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
+
+<div class="wrap">
+  <header class="top">
+    <div class="store">
+      <img class="store-logo" src="loja-sofa-outlet.png" alt="Sofá Outlet" width="250" height="250">
+      <div class="store-txt">
+        <b>Sofá Outlet</b>
+        <span>Loja de fábrica · Provador 3D</span>
+      </div>
+    </div>
+    <div class="brand" aria-label="Estofados Artflex e ArtForms">
+      <small>Produtos</small>
+      <img class="logo logo-light" src="artflex-logo.png" alt="Artflex Estofados" width="480" height="293">
+      <img class="logo logo-dark" src="artflex-logo-neg.png" alt="Artflex Estofados" width="480" height="293">
+    </div>
+  </header>
+
+  <div class="inapp" id="inapp" hidden>
+    <span>Para ver o sofá na sua sala, abra esta página no navegador do celular.</span>
+    <a id="inappLink" href="#" hidden>Abrir no Chrome</a>
+  </div>
+
+  <main class="shop">
+    <section class="stage" aria-label="Sofá em 3D">
+      <div class="progress" id="progress"></div>
+      <div class="loading" id="loading">Carregando o sofá em 3D…</div>
+      <model-viewer id="mv" class="show-dims" data-side="-1"
+        alt="Sofá em 3D"
+        camera-controls touch-action="pan-y" interaction-prompt="none"
+        camera-orbit="-32deg 74deg 5.6m" field-of-view="30deg"
+        min-camera-orbit="auto 20deg 2.2m" max-camera-orbit="auto 88deg 11m"
+        environment-image="neutral" shadow-intensity="1" shadow-softness="0.85" exposure="1"
+        ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor"
+        loading="eager">
+        <span slot="ar-button" hidden></span>
+
+        <svg class="dim-svg" id="dimSvg" aria-hidden="true">
+          <line id="lw"></line><line id="ld"></line><line id="lh"></line>
+          <line class="tick" id="tw1"></line><line class="tick" id="tw2"></line>
+          <line class="tick" id="td1"></line><line class="tick" id="td2"></line>
+          <line class="tick" id="th1"></line><line class="tick" id="th2"></line>
+        </svg>
+        <div slot="hotspot-w1" class="pt"></div><div slot="hotspot-w2" class="pt"></div>
+        <div slot="hotspot-d1" class="pt"></div><div slot="hotspot-d2" class="pt"></div>
+        <div slot="hotspot-h1" class="pt"></div><div slot="hotspot-h2" class="pt"></div>
+        <div slot="hotspot-lw" class="tape" id="tapeW">2,30 m</div>
+        <div slot="hotspot-ld" class="tape" id="tapeD">1,05 m</div>
+        <div slot="hotspot-lh" class="tape" id="tapeH">1,00 m</div>
+
+        <div class="tools">
+          <span class="chip" id="origem">3D modelado · medidas reais</span>
+          <div class="toggles">
+            <button class="tg" id="tgDims" type="button" aria-pressed="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>
+              Medidas
+            </button>
+            <button class="tg" id="tgOpen" type="button" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14h11M4 18h16M15 10l5 4-5 4"/></svg>
+              <span id="tgOpenLabel">Abrir retrátil</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <button class="ar-btn" id="arBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+            Ver na minha sala
+          </button>
+          <span class="hint">Arraste para girar · pinça para aproximar</span>
+        </div>
+      </model-viewer>
+    </section>
+
+    <section class="panel" aria-label="Opções do sofá">
+      <div class="intro">
+        <div class="eyebrow" id="tipo">Retrátil e reclinável</div>
+        <h1 id="nome">Valência</h1>
+        <p class="lede" id="resumo">Assento retrátil com molas ensacadas e encosto reclinável com almofadas de fibra siliconada.</p>
+        <a class="cta cta-top" id="ctaTop" href="https://wa.me/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>
+          Pedir orçamento no WhatsApp
+        </a>
+      </div>
+
+      <div class="group g-model">
+        <div class="group-head"><h2>Modelo</h2><span>Catálogos Artflex e ArtForms 2026</span></div>
+        <div role="radiogroup" aria-label="Modelo">
+          <div class="models-label">Sofás</div>
+          <div class="models" id="models"></div>
+          <div class="models-label">Poltronas e puff</div>
+          <div class="models poltronas" id="modelsP"></div>
+        </div>
+      </div>
+
+      <div class="group g-size">
+        <div class="group-head"><h2 id="sizeHead">Tamanho</h2><span id="sizeName">2,50 m</span></div>
+        <div class="sizes" id="sizes" role="radiogroup" aria-label="Tamanho"></div>
+      </div>
+
+      <dl class="specs" id="specs">
+        <div class="spec"><dt>Largura</dt><dd id="sW">2,50 m</dd></div>
+        <div class="spec"><dt>Profund.</dt><dd id="sD">1,00 m<small>aberto 1,40 m</small></dd></div>
+        <div class="spec"><dt>Altura</dt><dd id="sH">1,05 m</dd></div>
+      </dl>
+
+      <div class="group g-amb" id="ambBox">
+        <div class="group-head"><h2>Ambientes</h2><span>Fotos da fábrica</span></div>
+        <div class="amb" id="amb"></div>
+      </div>
+
+      <div class="group g-color">
+        <div class="group-head"><h2>Tecido</h2><span id="colorName">Deva · Cinza</span></div>
+        <div class="fabrics" id="fabrics" role="radiogroup" aria-label="Tecido"></div>
+        <div class="swatches" id="swatches" role="radiogroup" aria-label="Cor do tecido"></div>
+        <p class="note" id="fabNote">Mostruário Artflex linha 2026/2027, grupos A a E. A cor na tela pode variar um pouco da amostra real.</p>
+      </div>
+
+      <details class="ficha" id="fichaBox">
+        <summary>Ficha técnica</summary>
+        <ul id="ficha"></ul>
+      </details>
+
+      <div class="fit">
+        <div class="fit-row">
+          <label for="wall">Cabe na sua parede?</label>
+          <span class="fit-input"><input id="wall" type="text" inputmode="decimal" value="3,20" aria-describedby="fitOut"><span>m</span></span>
+        </div>
+        <div class="fit-out" id="fitOut" data-state="good" aria-live="polite"><span class="dot"></span><span id="fitText"></span></div>
+        <p class="fit-note" id="fitNote"></p>
+      </div>
+
+      <div class="buy">
+        <a class="cta" id="cta" href="https://wa.me/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1.1-4A8 8 0 1 1 20 12z"/></svg>
+          Pedir orçamento no WhatsApp
+        </a>
+        <p class="msg" id="msg"></p>
+      </div>
+    </section>
+  </main>
+
+  <section class="how">
+    <h2>Como o cliente usa</h2>
+    <ol class="steps">
+      <li><div><b>Vê o link no Instagram</b><p>Na bio, no story ou no post do sofá. Abre direto no celular, sem baixar aplicativo.</p></div></li>
+      <li><div><b>Escolhe modelo, tamanho e cor</b><p>Só os modelos e tamanhos do catálogo da fábrica, com as medidas oficiais de cada um.</p></div></li>
+      <li><div><b>Coloca o sofá na sala</b><p>Toca em “Ver na minha sala”, aponta para o chão e o sofá aparece em tamanho real. Depois pede o orçamento.</p></div></li>
+    </ol>
+  </section>
+
+  <p class="foot">Protótipo de apresentação. Modelos, medidas e ficha técnica dos catálogos Artflex e ArtForms 2026. Todos os 3D têm as medidas reais do catálogo. Os 3D foram gerados por IA a partir das fotos dos produtos; nos retráteis, ao tocar em “Abrir retrátil”, o provador troca para um 3D modelado que mostra o assento abrindo (o Parma de 2 módulos só tem o modelado). As cores são exemplos até chegar o mostruário de tecidos.</p>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto do ambiente" hidden>
+  <img id="lbImg" alt="">
+  <div class="lb-bar">
+    <button type="button" id="lbPrev" aria-label="Foto anterior">‹</button>
+    <span id="lbTxt"></span>
+    <button type="button" id="lbNext" aria-label="Próxima foto">›</button>
+    <button type="button" id="lbClose">Fechar</button>
+  </div>
+</div>
+
+<div class="sheet-bg" id="sheetBg" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <h3 id="sheetTitle">Na sua sala, em tamanho real</h3>
+    <p id="sheetText"></p>
+    <ol id="sheetSteps">
+      <li>Aponte a câmera para o chão e mova o celular devagar.</li>
+      <li>Toque para colocar o sofá encostado na parede.</li>
+      <li>Ande em volta: o tamanho é o real, não dá para esticar.</li>
+    </ol>
+    <div class="url" id="sheetUrl" hidden><code id="sheetUrlText"></code><button class="btn" id="copyUrl" type="button">Copiar</button></div>
+    <div class="row">
+      <button class="btn" id="tryAr" type="button" hidden>Tentar abrir a câmera</button>
+      <button class="btn primary" id="closeSheet" type="button">Entendi</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+// ======== CATÁLOGO ARTFLEX 2026 (medidas e ficha técnica do catálogo) ========
+// ======== LOJA (cada loja tem sua página: troque só este bloco) ========
+const LOJA = { nome: 'Sofá Outlet', whatsapp: '5583921454788' }; // WhatsApp com DDI e DDD, só dígitos: +55 (83) 92145-4788
+const BASE = [
+  'Estrutura de madeira de reflorestamento, seca e imunizada',
+  'Percintas elásticas no assento tipo italiana',
+];
+const REVEST = 'Revestimento: tecidos de diversos padrões do mostruário';
+const MODELOS = [
+  { id: 'valencia', nome: 'Valência', tipo: 'Retrátil e reclinável', retratil: true, cor: 'Cinza Névoa',
+    resumo: 'Assento retrátil com molas ensacadas e encosto reclinável com almofadas soltas de fibra siliconada.',
+    ficha: [...BASE, 'Assento retrátil com 4 molas bonnel e 99 molas ensacadas por assento, espuma D28 revestida de manta siliconada', 'Encosto reclinável com almofadas soltas 100% fibra siliconada', REVEST, 'Pés de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'valencia-250.glb', arquivoFoto: 'valencia-250-foto.glb', rotulo: '2 módulos', largura: 2.50, profundidade: 1.00, aberto: 1.40, altura: 1.05, foto: 'foto-valencia.webp' }] },
+  { id: 'parma', nome: 'Parma', tipo: 'Retrátil e reclinável', retratil: true, cor: 'Camurça',
+    resumo: 'Retrátil e reclinável com encosto capitonê, em 2 ou 3 módulos.',
+    ficha: [...BASE, 'Assento retrátil com 4 molas bonnel e 99 molas ensacadas por assento, espuma D28 revestida de manta siliconada', 'Encosto reclinável com almofadas soltas 100% fibra siliconada', REVEST, 'Pés de madeira com acabamento em verniz'],
+    tamanhos: [
+      { arquivo: 'parma-230.glb', arquivoFoto: 'parma-230-foto.glb', rotulo: '2 módulos', largura: 2.30, profundidade: 1.00, aberto: 1.40, altura: 0.98, foto: 'foto-parma.webp', amb: 'parma-2-modulos' },
+      { arquivo: 'parma-320.glb', arquivoFoto: 'parma-320-foto.glb', rotulo: '3 módulos', largura: 3.20, profundidade: 1.00, aberto: 1.40, altura: 0.98, foto: 'foto-parma.webp', amb: 'parma-3-modulos' },
+    ] },
+  { id: 'versalhes', nome: 'Versalhes', tipo: 'Retrátil e reclinável', retratil: true, cor: 'Terracota',
+    resumo: 'Compacto, com assento retrátil e encosto reclinável. Bom para salas menores.',
+    ficha: [...BASE, 'Assento retrátil com 2 molas bonnel por assento, espuma D28', 'Encosto reclinável com almofadas 100% fibra siliconada', REVEST, 'Pés de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'versalhes-182.glb', arquivoFoto: 'versalhes-182-foto.glb', rotulo: '2 módulos', largura: 1.82, profundidade: 0.90, aberto: 1.26, altura: 0.95, foto: 'foto-versalhes.webp' }] },
+  { id: 'ibiza', nome: 'Ibiza', tipo: 'Retrátil', retratil: true, cor: 'Cinza Névoa',
+    resumo: 'Assento retrátil com molas ensacadas e almofadas de encosto capitonê.',
+    ficha: [...BASE, 'Assento retrátil com 2 molas bonnel e 99 molas ensacadas por assento, espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Pés de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'ibiza-210.glb', arquivoFoto: 'ibiza-210-foto.glb', rotulo: '2 módulos', largura: 2.10, profundidade: 0.95, aberto: 1.30, altura: 0.85, foto: 'foto-ibiza.webp' }] },
+  { id: 'florenza', nome: 'Florenza', tipo: 'Assento fixo', retratil: false, cor: 'Cinza Névoa', origem: 'ia',
+    resumo: 'Linhas retas, almofadas soltas e base de madeira. Em 2 ou 3 lugares.',
+    ficha: [...BASE, 'Assento fixo com espuma D28', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Base de madeira com acabamento em verniz'],
+    tamanhos: [
+      { arquivo: 'florenza-170.glb', rotulo: '2 lugares', largura: 1.70, profundidade: 0.93, altura: 0.86, foto: 'foto-florenza-2.webp' },
+      { arquivo: 'florenza-210.glb', rotulo: '3 lugares', largura: 2.10, profundidade: 0.93, altura: 0.86, foto: 'foto-florenza-3.webp' },
+    ] },
+  { id: 'berlim', nome: 'Berlim', tipo: 'Assento fixo', retratil: false, cor: 'Off-White', origem: 'ia',
+    resumo: 'Encosto capitonê e pés palito de madeira. Em 2 ou 3 lugares.',
+    ficha: [...BASE, 'Assento fixo com espuma D28', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Pés de madeira com acabamento em verniz'],
+    tamanhos: [
+      { arquivo: 'berlim-140.glb', rotulo: '2 lugares', largura: 1.40, profundidade: 0.95, altura: 0.85, foto: 'foto-berlim-2.webp' },
+      { arquivo: 'berlim-190.glb', rotulo: '3 lugares', largura: 1.90, profundidade: 0.95, altura: 0.85, foto: 'foto-berlim-3.webp' },
+    ] },
+  { id: 'agata', nome: 'Ágata', categoria: 'Poltrona', tipo: 'Poltrona com braço de madeira', retratil: false, cor: 'Fendi', origem: 'ia',
+    resumo: 'Poltrona com estrutura e braços de madeira aparente e almofadas soltas.',
+    ficha: [...BASE, 'Assento com 1 mola bonnel, almofada solta com espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas de espuma eco-soft revestida de manta siliconada', REVEST, 'Braço de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'agata-072.glb', rotulo: '1 lugar', largura: 0.72, profundidade: 0.83, altura: 0.90, foto: 'foto-agata.webp' }] },
+  { id: 'doha', nome: 'Doha', categoria: 'Poltrona', tipo: 'Poltrona reclinável', retratil: false, reclinavel: true, cor: 'Bege Areia', origem: 'ia',
+    resumo: 'Poltrona reclinável com apoio de cabeça e braços estofados.',
+    ficha: [...BASE, 'Assento de espuma D28', 'Encosto e braços preenchidos 100% com fibra siliconada', 'Articulação: mecanismo reclinável de 1 estágio em ferro', REVEST, 'Pés de plástico preto injetado'],
+    tamanhos: [{ arquivo: 'doha-085-rec.glb', rotulo: '1 lugar', largura: 0.85, profundidade: 0.85, altura: 1.12, foto: 'foto-doha.webp', reclina: { fundo: 1.30, recuo: 0.23, altura: 1.06 } }] },
+  { id: 'dalian', nome: 'Dalian', categoria: 'Poltrona', tipo: 'Poltrona reclinável · ArtForms', retratil: false, reclinavel: true, cor: 'Cinza Névoa', origem: 'ia', tecidos: ['Texcouro'], versoes: true,
+    resumo: 'Poltrona reclinável da linha ArtForms, na versão manual ou elétrica com massageador.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com molas zig zag, percintas elásticas tipo italiana e espuma D28', 'Encosto e braços preenchidos 100% com fibra siliconada', 'Articulação: mecanismo em ferro com reclinação manual', 'Revestimento: somente em courino (Texcouro)'],
+    tamanhos: [
+      { arquivo: 'dalian-098-rec.glb', rotulo: 'Manual', largura: 0.98, profundidade: 0.91, altura: 1.00, foto: 'foto-dalian.webp', reclina: { fundo: 1.26, recuo: 0.13, altura: 0.94 } },
+      { arquivo: 'dalian-098-rec.glb', rotulo: 'Elétrica com massageador', largura: 0.98, profundidade: 0.91, altura: 1.00, foto: 'foto-dalian.webp', reclina: { fundo: 1.26, recuo: 0.13, altura: 0.94 },
+        ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com molas zig zag, percintas elásticas tipo italiana e espuma D28', 'Encosto e braços preenchidos 100% com fibra siliconada', 'Articulação: mecanismo em ferro com reclinação elétrica', 'Massageador: pontos de massagem no assento e encosto', 'Revestimento: somente em courino (Texcouro)'] },
+    ] },
+  { id: 'istambul', nome: 'Istambul', tipo: 'Assento fixo', retratil: false, cor: 'Fendi', origem: 'ia',
+    resumo: 'Almofadas soltas com molas ensacadas, braços inclinados e base de madeira.',
+    ficha: [...BASE, 'Assento com almofada solta de 60 molas ensacadas por assento e espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Base de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'istambul-238.glb', rotulo: 'Tamanho único', largura: 2.38, profundidade: 0.85, altura: 0.97, foto: 'foto-istambul.webp' }] },
+  { id: 'mali', nome: 'Mali', tipo: 'Assento fixo', retratil: false, cor: 'Cinza Névoa', origem: 'ia',
+    resumo: 'Linhas retas, almofadas soltas e base de madeira.',
+    ficha: [...BASE, 'Assento fixo com espuma D28', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Base de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'mali-196.glb', rotulo: 'Tamanho único', largura: 1.96, profundidade: 0.90, aberto: 1.18, altura: 0.88, foto: 'foto-mali.webp' }] },
+  { id: 'lazio', nome: 'Lazio', tipo: 'Com chaise · ArtForms', retratil: false, cor: 'Off-White', origem: 'ia',
+    resumo: 'Com chaise, em 1 ou 2 módulos ou de canto em L (chaise à direita ou à esquerda), encostos baquete e pés de metal preto.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com 3 molas bonnel e 65 molas ensacadas por assento, espuma D28 revestida de manta siliconada', 'Chaise com 6 molas bonnel e 143 molas ensacadas, espuma D28 revestida de manta siliconada', 'Percintas elásticas no assento tipo italiana', 'Encosto de espuma D23 com baquete 100% fibra siliconada', REVEST, 'Pés de metal pintado na cor preta'],
+    tamanhos: [
+      { arquivo: 'lazio-336.glb', rotulo: '2 módulos + chaise', largura: 3.36, profundidade: 0.90, chaise: 1.45, altura: 0.88, foto: 'foto-lazio.webp', amb: 'lazio-2-modulos-chaise' },
+      { arquivo: 'lazio-236.glb', rotulo: '1 módulo + chaise', largura: 2.36, profundidade: 0.90, chaise: 1.45, altura: 0.88, foto: 'foto-lazio.webp', amb: 'lazio-1-modulo-chaise' },
+      { arquivo: 'lazio-canto-308.glb', rotulo: 'De canto, chaise à direita', largura: 3.08, profundidade: 0.90, chaise: 1.45, fundo: 3.08, canto: true, theta: -40, altura: 0.88, foto: 'foto-lazio.webp', amb: 'lazio-de-canto' },
+      { arquivo: 'lazio-canto-308-esq.glb', rotulo: 'De canto, chaise à esquerda', largura: 3.08, profundidade: 0.90, chaise: 1.45, fundo: 3.08, canto: true, theta: 40, altura: 0.88, foto: 'foto-lazio.webp', amb: 'lazio-de-canto' },
+    ] },
+  { id: 'italia', nome: 'Itália', categoria: 'Poltrona', tipo: 'Poltrona · ArtForms', retratil: false, cor: 'Off-White', origem: 'ia',
+    resumo: 'Estrutura de madeira aparente com detalhe em corda náutica e almofadas soltas.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento de espuma D28 soft revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Base de madeira com acabamento em verniz e detalhes com corda náutica'],
+    tamanhos: [{ arquivo: 'italia-072.glb', rotulo: '1 lugar', largura: 0.72, profundidade: 0.85, altura: 0.82, foto: 'foto-italia.webp' }] },
+  { id: 'paris', nome: 'Paris', tipo: 'Assento fixo', retratil: false, cor: 'Bege Areia', origem: 'ia',
+    resumo: 'Encosto capitonê, braços com costura e base de madeira com pés palito.',
+    ficha: [...BASE, 'Assento fixo com 1 mola bonnel por assento e espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Base de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'paris-214.glb', rotulo: 'Tamanho único', largura: 2.14, profundidade: 0.85, altura: 0.88, foto: 'foto-paris.webp' }] },
+  { id: 'perola', nome: 'Pérola', categoria: 'Poltrona', tipo: 'Poltrona', retratil: false, cor: 'Fendi', origem: 'ia',
+    resumo: 'Poltrona com encosto capitonê e base de madeira com pés palito.',
+    ficha: [...BASE, 'Assento fixo com espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Base de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'perola-095.glb', rotulo: '1 lugar', largura: 0.95, profundidade: 0.75, altura: 0.86, foto: 'foto-perola.webp' }] },
+  { id: 'melissa', nome: 'Melissa', categoria: 'Poltrona', tipo: 'Poltrona · ArtForms', retratil: false, cor: 'Off-White', origem: 'ia',
+    resumo: 'Encosto curvo que abraça o corpo, sobre estrutura de madeira aparente.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento de espuma D28 soft revestida de manta siliconada', 'Percintas elásticas no assento tipo italiana', 'Encosto de espuma eco-soft revestida de manta siliconada', REVEST, 'Base de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'melissa-076.glb', rotulo: '1 lugar', largura: 0.76, profundidade: 0.80, altura: 0.78, foto: 'foto-melissa.webp' }] },
+  { id: 'puff-belle', nome: 'Puff Belle', categoria: 'Puff', tipo: 'Puff', retratil: false, cor: 'Fendi', origem: 'ia',
+    resumo: 'Puff retangular com pés laterais de madeira.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Percintas elásticas no assento tipo italiana', REVEST, 'Pés com base lateral de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'puff-belle-090.glb', rotulo: 'Tamanho único', largura: 0.90, profundidade: 0.50, altura: 0.45, foto: 'foto-puff-belle.webp' }] },
+  { id: 'roma', nome: 'Roma', tipo: 'Assento fixo', retratil: false, cor: 'Bege Areia', origem: 'ia',
+    resumo: 'Almofadas com molas ensacadas e moldura de madeira aparente na lateral dos braços.',
+    ficha: [...BASE, 'Assento com 2 molas bonnel e 55 molas ensacadas por assento, espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada, revestidas de manta siliconada', REVEST, 'Pés com base lateral de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'roma-218.glb', rotulo: 'Tamanho único', largura: 2.18, profundidade: 0.93, altura: 0.90, foto: 'foto-roma.webp' }] },
+  { id: 'tokio', nome: 'Tokio', tipo: 'Com ou sem chaise · ArtForms', retratil: false, cor: 'Bege Areia', origem: 'ia',
+    resumo: 'Com chaise ou só os módulos, braços arredondados e pés de metal preto.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com 2 molas bonnel e 55 molas ensacadas por assento, espuma D28 revestida de manta siliconada', 'Chaise com 4 molas bonnel e 132 molas ensacadas, espuma D28 revestida de manta siliconada', 'Percintas elásticas no assento tipo italiana', 'Encosto de almofadas soltas de espuma eco-soft revestida de manta siliconada', REVEST, 'Pés de metal pintado na cor preta'],
+    tamanhos: [
+      { arquivo: 'tokio-310.glb', rotulo: '2 módulos + chaise', largura: 3.10, profundidade: 0.93, chaise: 1.43, altura: 0.88, foto: 'foto-tokio.webp', amb: 'tokio-2-modulos-chaise' },
+      { arquivo: 'tokio-220-chaise.glb', rotulo: '1 módulo + chaise', largura: 2.20, profundidade: 0.93, chaise: 1.43, altura: 0.88, foto: 'foto-tokio.webp', amb: 'tokio-1-modulo-chaise' },
+      { arquivo: 'tokio-220.glb', rotulo: '2 módulos', largura: 2.20, profundidade: 0.93, altura: 0.88, foto: 'foto-tokio.webp', amb: 'tokio-2-modulos' },
+    ] },
+  { id: 'topazio', nome: 'Topázio', categoria: 'Poltrona', tipo: 'Poltrona com braço de madeira', retratil: false, cor: 'Fendi', origem: 'ia',
+    resumo: 'Poltrona com braços de madeira recortados e almofadas soltas.',
+    ficha: [...BASE, 'Assento fixo com 1 mola bonnel e espuma D28 revestida de manta siliconada', 'Encosto de almofadas soltas 100% fibra siliconada', REVEST, 'Braço de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'topazio-072.glb', rotulo: '1 lugar', largura: 0.72, profundidade: 0.80, altura: 0.90, foto: 'foto-topazio.webp' }] },
+  { id: 'safira', nome: 'Safira', categoria: 'Poltrona', tipo: 'Poltrona · ArtForms', retratil: false, cor: 'Cinza Névoa', origem: 'ia',
+    resumo: 'Poltrona com braços de madeira e almofadas soltas de assento e encosto.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com almofada solta de espuma D28 soft revestida de manta siliconada', 'Percintas elásticas no assento tipo italiana', 'Encosto de almofadas soltas de espuma eco-soft revestida de manta siliconada', REVEST, 'Braço de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'safira-074.glb', rotulo: '1 lugar', largura: 0.74, profundidade: 0.75, altura: 0.85, foto: 'foto-safira.webp' }] },
+  { id: 'rubi', nome: 'Rubi', categoria: 'Poltrona', tipo: 'Poltrona', retratil: false, cor: 'Rosé', origem: 'ia',
+    resumo: 'Poltrona compacta de linhas retas com pés altos de madeira.',
+    ficha: [...BASE, 'Assento fixo com espuma D28', 'Encosto de espuma D23', REVEST, 'Pés de madeira com acabamento em verniz'],
+    tamanhos: [{ arquivo: 'rubi-066.glb', rotulo: '1 lugar', largura: 0.66, profundidade: 0.70, altura: 0.82, foto: 'foto-rubi.webp' }] },
+  { id: 'tokio-poltrona', nome: 'Tokio', categoria: 'Poltrona', tipo: 'Poltrona · ArtForms', retratil: false, cor: 'Terracota', origem: 'ia',
+    resumo: 'A poltrona da linha Tokio: braços arredondados e pés de metal preto.',
+    ficha: ['Estrutura de madeira de reflorestamento, seca e imunizada', 'Assento com 1 mola bonnel e 40 molas ensacadas, espuma D28 revestida de manta siliconada', 'Percintas elásticas no assento tipo italiana', 'Encosto de almofadas soltas de espuma eco-soft revestida de manta siliconada', REVEST, 'Pés de metal pintado na cor preta'],
+    tamanhos: [{ arquivo: 'tokio-poltrona-105.glb', rotulo: '1 lugar', largura: 1.05, profundidade: 0.93, altura: 0.88, foto: 'foto-tokio-poltrona.webp', amb: 'poltrona-tokio' }] },
+];
+// ordem na tela: sofás retráteis, sofás fixos, chaise, poltronas e puff
+const ORDEM = ['valencia', 'parma', 'versalhes', 'ibiza', 'mali', 'istambul', 'paris', 'roma', 'florenza', 'berlim', 'lazio', 'tokio', 'agata', 'topazio', 'safira', 'italia', 'melissa', 'perola', 'rubi', 'tokio-poltrona', 'doha', 'dalian', 'puff-belle'];
+MODELOS.sort((a, b) => ORDEM.indexOf(a.id) - ORDEM.indexOf(b.id));
+// Mostruário de tecidos Artflex linha 2026/2027 (cores tiradas das fotos das amostras)
+const TECIDOS = [
+  { nome: 'Harmonia', grupo: 'A', acabamento: 'trama', textura: 'tex-harmonia.jpg', cores: [{ nome: 'Marfim', hex: '#aaadad', foto: 'tec-harmonia-marfim.webp' }] },
+  { nome: 'Texcouro', grupo: 'B', acabamento: 'couro', textura: 'tex-texcouro.jpg', cores: [{ nome: 'Ocre', hex: '#c3b9a7', foto: 'tec-texcouro-ocre.webp' }, { nome: 'Caramelo', hex: '#dc995f', foto: 'tec-texcouro-caramelo.webp' }, { nome: 'Marrom', hex: '#847a75', foto: 'tec-texcouro-marrom.webp' }, { nome: 'Preto', hex: '#3c3932', foto: 'tec-texcouro-preto.webp' }] },
+  { nome: 'JY', grupo: 'C', acabamento: 'trama', textura: 'tex-jy.jpg', cores: [{ nome: '04', hex: '#c0c1c0', foto: 'tec-jy-04.webp' }, { nome: '02', hex: '#c0bdb5', foto: 'tec-jy-02.webp' }, { nome: '03', hex: '#b9b1ae', foto: 'tec-jy-03.webp' }] },
+  { nome: 'JL', grupo: 'C', acabamento: 'trama', textura: 'tex-jl.jpg', cores: [{ nome: '01', hex: '#c2c5c9', foto: 'tec-jl-01.webp' }, { nome: '02', hex: '#cdcac7', foto: 'tec-jl-02.webp' }] },
+  { nome: 'Linen', grupo: 'C', acabamento: 'trama', textura: 'tex-linen.jpg', cores: [{ nome: '01', hex: '#bbbab8', foto: 'tec-linen-01.webp' }, { nome: '14', hex: '#b1b0b5', foto: 'tec-linen-14.webp' }] },
+  { nome: 'Jamaica', grupo: 'C', acabamento: 'trama', textura: 'tex-jamaica.jpg', cores: [{ nome: '41', hex: '#b5b8bc', foto: 'tec-jamaica-41.webp' }, { nome: '80', hex: '#b3aeab', foto: 'tec-jamaica-80.webp' }] },
+  { nome: 'Bouclê', grupo: 'D', acabamento: 'boucle', textura: 'tex-boucle.jpg', cores: [{ nome: '02', hex: '#cfcbd0', foto: 'tec-boucle-02.webp' }, { nome: '03', hex: '#c6c3c3', foto: 'tec-boucle-03.webp' }] },
+  { nome: 'Acorde', grupo: 'D', acabamento: 'suede', textura: 'tex-acorde.jpg', cores: [{ nome: 'Verde', hex: '#5f9298', foto: 'tec-acorde-verde.webp' }, { nome: 'Terracota', hex: '#ae5b2e', foto: 'tec-acorde-terracota.webp' }] },
+  { nome: 'Zavatex', grupo: 'D', acabamento: 'trama', textura: 'tex-zavatex.jpg', cores: [{ nome: 'Cinza', hex: '#a1a9b6', foto: 'tec-zavatex-cinza.webp' }] },
+  { nome: 'Deva', grupo: 'D', acabamento: 'trama', textura: 'tex-deva.jpg', cores: [{ nome: 'Natural', hex: '#b9b5b5', foto: 'tec-deva-natural.webp' }, { nome: 'Creme', hex: '#b5b0b0', foto: 'tec-deva-creme.webp' }, { nome: 'Cinza', hex: '#a8a7ac', foto: 'tec-deva-cinza.webp' }] },
+  { nome: 'Saturno', grupo: 'E', acabamento: 'trama', textura: 'tex-saturno.jpg', cores: [{ nome: 'Cru', hex: '#b7b2b0', foto: 'tec-saturno-cru.webp' }, { nome: 'Cinza', hex: '#90959d', foto: 'tec-saturno-cinza.webp' }, { nome: 'Tabaco', hex: '#5f543d', foto: 'tec-saturno-tabaco.webp' }] },
+  { nome: 'Veludo Slim', grupo: 'E', acabamento: 'veludo', textura: 'tex-veludo-slim.jpg', cores: [{ nome: 'Marfim', hex: '#cbc8c8', foto: 'tec-veludo-slim-marfim.webp' }, { nome: 'Camurça', hex: '#99958a', foto: 'tec-veludo-slim-camurca.webp' }, { nome: 'Chocolate', hex: '#967f72', foto: 'tec-veludo-slim-chocolate.webp' }, { nome: 'Terracota', hex: '#d73446', foto: 'tec-veludo-slim-terracota.webp' }, { nome: 'Marinho', hex: '#2366a0', foto: 'tec-veludo-slim-marinho.webp' }] },
+];
+// aparência no 3D por tipo de tecido
+const ACAB = {
+  trama: { rough: 0.95, sheen: 0.10, spec: 0.20 },
+  boucle: { rough: 1.0, sheen: 0.08, spec: 0.15 },
+  suede: { rough: 0.9, sheen: 0.28, spec: 0.20 },
+  veludo: { rough: 0.78, sheen: 0.45, spec: 0.25 },
+  couro: { rough: 0.42, sheen: 0.0, spec: 0.55 },
+};
+// tecido inicial de cada modelo (parecido com a foto do catálogo)
+const PADRAO = {
+  valencia: ['Deva', 'Cinza'], parma: ['Veludo Slim', 'Camurça'], versalhes: ['Acorde', 'Terracota'], ibiza: ['Saturno', 'Cinza'],
+  mali: ['Zavatex', 'Cinza'], istambul: ['Deva', 'Natural'], paris: ['Deva', 'Creme'], roma: ['Saturno', 'Cru'],
+  florenza: ['Linen', '14'], berlim: ['JL', '02'], lazio: ['Bouclê', '02'], tokio: ['Saturno', 'Cru'],
+  agata: ['Jamaica', '80'], topazio: ['Jamaica', '80'], safira: ['Linen', '01'], italia: ['Harmonia', 'Marfim'],
+  melissa: ['Bouclê', '03'], perola: ['JY', '04'], rubi: ['JY', '03'], doha: ['Veludo Slim', 'Chocolate'],
+  dalian: ['Texcouro', 'Ocre'], 'puff-belle': ['Bouclê', '02'], 'tokio-poltrona': ['Acorde', 'Terracota'],
+};
+// ===============================================================
+
+// Na prévia do Claude os arquivos .glb não são servidos: eles vão como texto base64
+// (modelo.glb.txt) e este trecho os entrega ao visualizador 3D. No site da loja: false.
+const PREVIA_TEXTO = false;
+if (PREVIA_TEXTO) {
+  const realFetch = window.fetch.bind(window);
+  const cache = new Map();
+  window.fetch = async (input, init) => {
+    const url = typeof input === 'string' ? input : input.url;
+    const m = /([\w-]+\.glb)(\?.*)?$/.exec(url || '');
+    if (!m) return realFetch(input, init);
+    if (!cache.has(m[1])) {
+      cache.set(m[1], realFetch(m[1] + '.txt')
+        .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .then((t) => { const s = atob(t.trim()), b = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) b[i] = s.charCodeAt(i); return b.buffer; }));
+    }
+    const buf = await cache.get(m[1]);
+    return new Response(buf.slice(0), { status: 200, headers: { 'Content-Type': 'model/gltf-binary', 'Content-Length': String(buf.byteLength) } });
+  };
+}
+
+const $ = (id) => document.getElementById(id);
+const mv = $('mv');
+const hashModel = (() => { try { const h = location.hash.slice(1); return MODELOS.findIndex((m) => m.id === h); } catch { return -1; } })();
+const state = { model: Math.max(0, hashModel), size: 0, fabric: 0, color: 0, open: false, animated: false, dims: true };
+function setDefaultFabric() {
+  const [fn, cn] = PADRAO[MODELOS[state.model].id] || ['Saturno', 'Cinza'];
+  state.fabric = Math.max(0, TECIDOS.findIndex((f) => f.nome === fn));
+  const so = MODELOS[state.model].tecidos;
+  if (so && !so.includes(TECIDOS[state.fabric].nome)) state.fabric = TECIDOS.findIndex((f) => so.includes(f.nome));
+  state.color = Math.max(0, TECIDOS[state.fabric].cores.findIndex((c) => c.nome === cn));
+}
+setDefaultFabric();
+const ANIM = 1.2;
+let animT = 0, animReady = false, raf = 0;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const inFrame = (() => { try { return window.self !== window.top; } catch { return true; } })();
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+const inApp = /Instagram|FBAN|FBAV|FB_IAB/i.test(navigator.userAgent);
+
+const m2 = (v) => v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' m';
+const cm = (v) => Math.round(v * 100) + ' cm';
+const model = () => MODELOS[state.model];
+const size = () => model().tamanhos[state.size];
+const fabricSel = () => TECIDOS[state.fabric];
+const color = () => fabricSel().cores[state.color];
+
+// ---------- opções ----------
+MODELOS.forEach((m, i) => {
+  const l = document.createElement('label');
+  l.className = 'opt';
+  l.dataset.index = String(i);
+  l.innerHTML = `<input type="radio" name="model" value="${i}" ${i === state.model ? 'checked' : ''}><span class="model-card"><img src="${m.tamanhos[0].foto}" alt="" loading="lazy" width="480" height="260"><b>${m.nome}</b><small>${m.tipo}</small></span>`;
+  l.querySelector('input').addEventListener('change', () => selectModel(i));
+  $(m.categoria ? 'modelsP' : 'models').append(l);
+});
+function renderSizes() {
+  $('sizes').replaceChildren();
+  model().tamanhos.forEach((t, i) => {
+    const l = document.createElement('label');
+    l.className = 'opt';
+    l.innerHTML = `<input type="radio" name="size" value="${i}" ${i === state.size ? 'checked' : ''}><span class="size-card">${model().versoes ? `<b>${t.rotulo}</b><small>${m2(t.largura)}</small>` : `<b>${m2(t.largura)}</b><small>${t.rotulo}</small>`}</span>`;
+    l.querySelector('input').addEventListener('change', () => { state.size = i; loadSize(); updateUI(); });
+    $('sizes').append(l);
+  });
+}
+// alguns modelos só saem em certos tecidos (ex.: poltronas reclináveis só em courino)
+const tecidoOk = (f) => !model().tecidos || model().tecidos.includes(f.nome);
+const NOTA_TECIDO = 'Mostruário Artflex linha 2026/2027, grupos A a E. A cor na tela pode variar um pouco da amostra real.';
+function renderFabrics() {
+  const so = model().tecidos;
+  $('fabNote').textContent = so
+    ? `A ${model().nome} é feita somente em courino (${so.join(', ')}). A cor na tela pode variar um pouco da amostra real.`
+    : NOTA_TECIDO;
+  $('fabrics').replaceChildren(...TECIDOS.flatMap((f, i) => {
+    if (!tecidoOk(f)) return [];
+    const l = document.createElement('label');
+    l.className = 'opt';
+    l.innerHTML = `<input type="radio" name="fabric" value="${i}" ${i === state.fabric ? 'checked' : ''}><span class="fab-card"><img src="${f.cores[0].foto}" alt="" width="128" height="128"><b>${f.nome}</b><small>Grupo ${f.grupo}</small></span>`;
+    l.querySelector('input').addEventListener('change', () => { state.fabric = i; state.color = 0; renderSwatches(); applyColor(); updateUI(); });
+    return [l];
+  }));
+}
+function renderSwatches() {
+  $('swatches').replaceChildren(...fabricSel().cores.map((c, i) => {
+    const l = document.createElement('label');
+    l.className = 'opt';
+    l.title = c.nome;
+    l.innerHTML = `<input type="radio" name="color" value="${i}" aria-label="${fabricSel().nome} ${c.nome}" ${i === state.color ? 'checked' : ''}><span class="sw" style="background-image:url('${c.foto}')"></span><span class="sw-name">${c.nome}</span>`;
+    l.querySelector('input').addEventListener('change', () => { state.color = i; applyColor(); updateUI(); });
+    return l;
+  }));
+}
+renderFabrics();
+renderSwatches();
+// no celular a fileira de tecidos rola de lado: mantém o escolhido à vista
+function revealFabric() {
+  const box = $('fabrics'), el = box.querySelector('input:checked')?.closest('.opt');
+  if (!el || box.scrollWidth <= box.clientWidth) return;
+  const a = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+  if (a.left < b.left || a.right > b.right) box.scrollLeft += a.left - b.left - 8;
+}
+requestAnimationFrame(revealFabric);
+function selectModel(i) {
+  state.model = i; state.size = 0; setDefaultFabric(); renderFabrics(); renderSwatches(); requestAnimationFrame(revealFabric);
+  if (state.open) { state.open = false; animT = 0; cancelAnimationFrame(raf); }
+  state.animated = false;
+  try { history.replaceState(null, '', '#' + model().id); } catch { /* sem histórico na prévia */ }
+  renderSizes(); loadSize(); updateUI(); revealModel();
+}
+// no celular a fileira de modelos rola de lado: mantém o escolhido à vista
+function revealModel() {
+  const el = document.querySelector(`.models .opt[data-index="${state.model}"]`), box = el && el.parentElement;
+  if (!el || box.scrollWidth <= box.clientWidth) return;
+  const a = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+  if (a.left < b.left || a.right > b.right) box.scrollLeft += a.left - b.left - 8;
+}
+
+// ---------- cor do tecido no 3D ----------
+const toLin = (c) => (c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4));
+function fabric(hex, acab) {
+  const s = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  const lin = s.map(toLin);
+  const L = 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2];
+  // a textura de detalhe tem média ~0,75 (linear): compensa para manter a cor da amostra
+  const base = lin.map((v) => Math.min(1, ((L + (v - L) * 0.85) * 0.66) / 0.75));
+  const sheen = s.map((v) => toLin(v + (1 - v) * 0.35) * ACAB[acab].sheen);
+  return { base, sheen };
+}
+let colorToken = 0;
+async function applyColor() {
+  const mat = mv.model && mv.model.materials.find((m) => m.name === 'Tecido');
+  if (!mat) return;
+  const f = fabricSel(), a = ACAB[f.acabamento], token = ++colorToken;
+  const { base, sheen } = fabric(color().hex, f.acabamento);
+  mat.pbrMetallicRoughness.setBaseColorFactor([...base, 1]);
+  mat.pbrMetallicRoughness.setRoughnessFactor(a.rough);
+  mat.setSheenColorFactor(sheen);
+  mat.setSpecularFactor(a.spec);
+  try {
+    const tex = await mv.createTexture(f.textura);
+    if (token !== colorToken || !tex || !mat.pbrMetallicRoughness.baseColorTexture) return;
+    const info = mat.pbrMetallicRoughness.baseColorTexture;
+    info.setTexture(tex);
+    const smp = info.texture && info.texture.sampler;
+    if (smp) { smp.setWrapS(10497); smp.setWrapT(10497); smp.setScale({ u: 2.5, v: 2.5 }); } // amostra de ~10 cm repetida sobre as UVs de 25 cm
+  } catch { /* sem textura: fica só a cor */ }
+}
+
+// ---------- tamanho / modelo ----------
+let pendingTheta = null;
+function loadSize() {
+  animReady = false;
+  pendingTheta = size().theta ?? null;
+  frame(pendingTheta);
+  $('progress').style.opacity = '1';
+  mv.alt = `Sofá ${model().nome} ${size().rotulo} em 3D`;
+  const t = size();
+  mv.src = t.arquivoFoto && !state.animated ? t.arquivoFoto : t.arquivo;
+}
+mv.addEventListener('progress', (e) => {
+  const p = e.detail.totalProgress;
+  $('progress').style.width = (p * 100).toFixed(0) + '%';
+  if (p >= 1) setTimeout(() => { $('progress').style.opacity = '0'; $('progress').style.width = '0'; }, 400);
+});
+mv.addEventListener('load', () => {
+  if (pendingTheta != null) { frame(pendingTheta); pendingTheta = null; } // o visualizador descarta o ângulo durante a troca de modelo
+  $('loading').hidden = true;
+  setTimeout(() => { $('progress').style.opacity = '0'; $('progress').style.width = '0'; }, 300);
+  applyColor();
+  if (pendingOpen) { pendingOpen = false; animT = 0; primeAnim(); animateTo(ANIM); }
+  else if (state.open && podeAbrir()) { primeAnim(); animT = ANIM; mv.currentTime = ANIM; } else { animT = 0; }
+  placeDims();
+});
+mv.addEventListener('error', () => { $('loading').hidden = false; $('loading').textContent = 'Não foi possível carregar o modelo 3D.'; });
+
+// ---------- enquadramento: a mesma distância mostra a diferença de tamanho ----------
+function frame(thetaDeg) {
+  const r = mv.getBoundingClientRect();
+  if (!r.width || !r.height) return;
+  const t = Math.tan((30 * Math.PI) / 360), aspect = r.width / r.height;
+  const halfW = (size().largura * 0.85 + (size().fundo || size().chaise || size().profundidade) * 0.53) / 2 + (size().canto ? 0.45 : size().chaise ? 0.8 : 0.55);
+  const radius = Math.max(halfW / (t * aspect), 0.8 / t, 3.2);
+  const o = mv.getCameraOrbit ? mv.getCameraOrbit() : null;
+  // os sofás de canto abrem virados para o L; os outros mantêm o ângulo que a pessoa escolheu
+  const th = thetaDeg != null ? thetaDeg + 'deg' : o ? o.theta + 'rad' : '-32deg', ph = o ? o.phi + 'rad' : '74deg';
+  mv.cameraOrbit = `${th} ${ph} ${radius.toFixed(2)}m`;
+}
+new ResizeObserver(() => frame()).observe(mv);
+
+// ---------- retrátil / poltrona reclinável (animação) ----------
+const podeAbrir = () => model().retratil || !!size().reclina;
+function primeAnim() {
+  if (animReady || !mv.availableAnimations.includes('Abrir')) return;
+  mv.animationName = 'Abrir';
+  mv.play();
+  mv.pause();
+  animReady = true;
+}
+let pendingOpen = false;
+function animateTo(to, done) {
+  primeAnim();
+  const from = animT;
+  const dur = reduceMotion ? 1 : 1100 * Math.abs(to - from) / ANIM;
+  const t0 = performance.now();
+  cancelAnimationFrame(raf);
+  const step = (now) => {
+    const k = Math.min(1, (now - t0) / Math.max(dur, 1));
+    const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+    animT = from + (to - from) * e;
+    mv.currentTime = animT;
+    placeDims();
+    if (k < 1) raf = requestAnimationFrame(step); else if (done) done();
+  };
+  raf = requestAnimationFrame(step);
+}
+// Modelos com 3D das fotos (peça única) trocam para o 3D animado só para abrir o retrátil.
+function setOpen(open) {
+  if (!podeAbrir()) return;
+  const t = size();
+  state.open = open;
+  if (open) {
+    if (t.arquivoFoto && !state.animated) { state.animated = true; pendingOpen = true; loadSize(); }
+    else animateTo(ANIM);
+  } else {
+    animateTo(0, () => { if (t.arquivoFoto && state.animated && !state.open) { state.animated = false; loadSize(); updateUI(); } });
+  }
+  updateUI();
+}
+$('tgOpen').addEventListener('click', () => setOpen(!state.open));
+
+// ---------- trena (medidas no 3D) ----------
+let side = -1; // lado da trena de profundidade/altura: o mais perto da câmera
+function placeDims() {
+  const t = size(), k = animT / ANIM, x = t.largura / 2, xs = side * x, os = side * 0.14;
+  const Dt = t.fundo || t.chaise || t.profundidade, z0 = -Dt / 2, z1 = Dt / 2, R = t.reclina, z1Open = R ? z0 - R.recuo + R.fundo : z0 + (t.aberto || Dt);
+  const zF = z1 + (z1Open - z1) * k, zB = z0 - (R ? R.recuo * k : 0), y = t.altura + (R ? (R.altura - t.altura) * k : 0);
+  mv.dataset.side = String(side);
+  const off = 0.14, y0 = 0.004;
+  const set = (name, p) => mv.updateHotspot({ name: 'hotspot-' + name, position: p.map((v) => v.toFixed(4)).join(' ') });
+  set('w1', [-x, y0, zF + off]); set('w2', [x, y0, zF + off]); set('lw', [0, y0, zF + off]);
+  set('d1', [xs + os, y0, zF]); set('d2', [xs + os, y0, zB]); set('ld', [xs + os, y0, (zF + zB) / 2]);
+  set('h1', [xs + os, 0, zB]); set('h2', [xs + os, y, zB]); set('lh', [xs + os, y / 2, zB]);
+  requestAnimationFrame(() => requestAnimationFrame(drawDims));
+}
+function drawDims() {
+  if (!state.dims) return;
+  const q = (n) => mv.queryHotspot('hotspot-' + n);
+  const seg = (lineId, a, b, t1, t2) => {
+    const A = q(a), B = q(b);
+    if (!A || !B) return;
+    const ax = A.canvasPosition.x, ay = A.canvasPosition.y, bx = B.canvasPosition.x, by = B.canvasPosition.y;
+    const L = $(lineId);
+    L.setAttribute('x1', ax); L.setAttribute('y1', ay); L.setAttribute('x2', bx); L.setAttribute('y2', by);
+    const len = Math.hypot(bx - ax, by - ay) || 1, nx = -(by - ay) / len * 6, ny = (bx - ax) / len * 6;
+    for (const [id, px, py] of [[t1, ax, ay], [t2, bx, by]]) {
+      const T = $(id);
+      T.setAttribute('x1', px - nx); T.setAttribute('y1', py - ny); T.setAttribute('x2', px + nx); T.setAttribute('y2', py + ny);
+    }
+  };
+  seg('lw', 'w1', 'w2', 'tw1', 'tw2');
+  seg('ld', 'd1', 'd2', 'td1', 'td2');
+  seg('lh', 'h1', 'h2', 'th1', 'th2');
+  // etiquetas da trena sempre dentro do quadro (telas estreitas)
+  const box = mv.getBoundingClientRect();
+  for (const id of ['tapeW', 'tapeD']) {
+    const el = $(id);
+    el.style.setProperty('--dx', '0px');
+    const r = el.getBoundingClientRect();
+    if (!r.width) continue;
+    const dx = r.left < box.left + 6 ? box.left + 6 - r.left : r.right > box.right - 6 ? box.right - 6 - r.right : 0;
+    if (dx) el.style.setProperty('--dx', dx.toFixed(1) + 'px');
+  }
+}
+mv.addEventListener('camera-change', () => {
+  const th = mv.getCameraOrbit().theta;
+  const s = Math.sin(th) < 0 ? -1 : 1;
+  if (s !== side) { side = s; placeDims(); } else drawDims();
+});
+$('tgDims').addEventListener('click', () => {
+  state.dims = !state.dims;
+  mv.classList.toggle('show-dims', state.dims);
+  $('tgDims').setAttribute('aria-pressed', String(state.dims));
+  if (state.dims) placeDims();
+});
+
+// ---------- fotos de ambiente (pasta do QR code do catálogo) ----------
+const ambPrefix = () => size().amb || model().id;
+let lbIdx = 0;
+function renderAmb() {
+  const pre = ambPrefix(), m = model(), t = size();
+  $('amb').replaceChildren(...[1, 2, 3, 4].map((k) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Ver foto ${k} do ${m.nome} ${t.rotulo} em ambiente`);
+    const img = document.createElement('img');
+    img.src = `amb-${pre}-${k}-p.webp`; img.alt = ''; img.loading = 'lazy'; img.width = 420; img.height = 236;
+    img.onerror = () => { $('ambBox').hidden = true; };
+    b.append(img);
+    b.addEventListener('click', () => openLb(k - 1));
+    return b;
+  }));
+  $('ambBox').hidden = false;
+}
+function showLb() {
+  const m = model(), t = size();
+  $('lbImg').src = `amb-${ambPrefix()}-${lbIdx + 1}.webp`;
+  $('lbImg').alt = `${m.nome} ${t.rotulo} em ambiente, foto ${lbIdx + 1} de 4`;
+  $('lbTxt').textContent = `${m.nome} · ${t.rotulo} · ${lbIdx + 1}/4`;
+}
+function openLb(i) { lbIdx = i; showLb(); $('lb').hidden = false; $('lbClose').focus(); }
+const closeLb = () => { $('lb').hidden = true; };
+$('lbPrev').addEventListener('click', () => { lbIdx = (lbIdx + 3) % 4; showLb(); });
+$('lbNext').addEventListener('click', () => { lbIdx = (lbIdx + 1) % 4; showLb(); });
+$('lbClose').addEventListener('click', closeLb);
+$('lb').addEventListener('click', (e) => { if (e.target === $('lb')) closeLb(); });
+document.addEventListener('keydown', (e) => {
+  if ($('lb').hidden) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % 4; showLb(); }
+  if (e.key === 'ArrowLeft') { lbIdx = (lbIdx + 3) % 4; showLb(); }
+});
+
+// ---------- textos, encaixe e WhatsApp ----------
+let ambKey = '';
+function updateUI() {
+  const ak = ambPrefix(); if (ak !== ambKey) { ambKey = ak; renderAmb(); }
+  const m = model(), t = size(), c = color();
+  $('tipo').textContent = m.tipo;
+  const fromPhotos = m.origem === 'ia' || (t.arquivoFoto && !state.animated);
+  $('origem').textContent = fromPhotos ? '3D gerado das fotos · medidas reais' : t.arquivoFoto ? '3D modelado · retrátil abrindo' : '3D modelado · medidas reais';
+  $('nome').textContent = m.nome;
+  $('resumo').textContent = m.resumo;
+  $('ficha').replaceChildren(...(t.ficha || m.ficha).map((f) => { const li = document.createElement('li'); li.textContent = f; return li; }));
+  $('sizeHead').textContent = m.versoes ? 'Versão' : 'Tamanho';
+  $('sizeName').textContent = `${t.rotulo} · ${m2(t.largura)}`;
+  $('colorName').textContent = `${fabricSel().nome} · ${c.nome}`;
+  $('sW').innerHTML = t.canto ? `${m2(t.largura)}<small>em cada parede</small>` : m2(t.largura);
+  $('sD').innerHTML = t.reclina ? `${m2(t.profundidade)}<small>reclinada ≈ ${m2(t.reclina.fundo)}</small>` : t.chaise ? `${m2(t.profundidade)}<small>com chaise ${m2(t.chaise)}</small>` : t.aberto ? `${m2(t.profundidade)}<small>aberto ${m2(t.aberto)}</small>` : m2(t.profundidade);
+  $('sH').textContent = m2(t.altura);
+  $('tgOpen').hidden = !podeAbrir();
+  $('tgOpen').setAttribute('aria-pressed', String(state.open));
+  const reclina = /reclinável/.test(m.tipo);
+  $('tgOpenLabel').textContent = t.reclina ? (state.open ? 'Fechar' : 'Reclinar') : state.open ? (reclina ? 'Fechar' : 'Fechar retrátil') : (reclina ? 'Abrir e reclinar' : 'Abrir retrátil');
+  $('tapeW').textContent = m2(t.largura);
+  $('tapeD').innerHTML = t.reclina && state.open ? `≈ ${m2(t.reclina.fundo)}<small>reclinada</small>` : t.canto ? `${m2(t.fundo)}<small>outra parede</small>` : t.chaise ? `${m2(t.chaise)}<small>chaise</small>` : state.open && t.aberto ? `${m2(t.aberto)}<small>aberto</small>` : m2(t.profundidade);
+  $('tapeH').textContent = t.reclina && state.open ? `≈ ${m2(t.reclina.altura)}` : m2(t.altura);
+  updateFit();
+  const msg = `Olá, ${LOJA.nome}! Vi o provador 3D e quero um orçamento:\n• ${m.categoria || 'Sofá'} ${m.nome} (${t.rotulo}, ${m2(t.largura)})\n• Tecido: ${fabricSel().nome} ${c.nome} (grupo ${fabricSel().grupo})`;
+  $('msg').textContent = msg;
+  $('cta').href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
+  $('ctaTop').href = $('cta').href;
+}
+function updateFit() {
+  const raw = $('wall').value.trim().replace(',', '.');
+  const wall = parseFloat(raw), t = size(), w = t.largura, out = $('fitOut');
+  const m = model();
+  $('fitNote').textContent = t.aberto && m.retratil
+    ? `Para abrir o retrátil, deixe ${m2(t.aberto)} livres a partir da parede.`
+    : t.aberto
+      ? `Aberto, o assento avança até ${m2(t.aberto)} a partir da parede (medida do catálogo).`
+    : t.chaise
+      ? (t.canto ? `Em L: precisa de ${m2(t.largura)} livres em cada uma das duas paredes do canto. No lado da chaise, o sofá avança ${m2(t.chaise)}.` : `A chaise avança ${m2(t.chaise)} a partir da parede. Confira de que lado ela fica na sua sala.`)
+    : m.reclinavel && t.reclina
+      ? `Reclinada, ocupa cerca de ${m2(t.reclina.fundo)} de fundo: o encosto vai uns ${cm(t.reclina.recuo)} para trás e o apoio de pés avança na frente. Medida aproximada, tirada do 3D (o catálogo não informa).`
+    : m.reclinavel
+      ? 'Poltrona reclinável: deixe espaço livre atrás e na frente para reclinar. O catálogo não informa a medida reclinada.'
+      : 'A Artflex recomenda deixar pelo menos 5 cm entre o estofado e a parede, para o ar circular.';
+  if (!(wall > 0) || wall > 20) { out.dataset.state = ''; $('fitText').textContent = 'Digite a largura da parede em metros, por exemplo 3,20.'; return; }
+  const slack = wall - w;
+  if (slack >= 0.2) { out.dataset.state = 'good'; $('fitText').textContent = t.canto ? `Cabe. Sobram ${cm(slack)} nesta parede, com o sofá encostado no canto.` : `Cabe. Sobram ${cm(slack / 2)} de cada lado.`; }
+  else if (slack >= 0) { out.dataset.state = 'warn'; $('fitText').textContent = `Cabe, mas justo: sobram ${cm(slack)} no total. Confira rodapé e tomadas.`; }
+  else {
+    out.dataset.state = 'bad';
+    const fits = model().tamanhos.filter((x) => wall - x.largura >= 0.1);
+    const alt = fits.length ? ` O de ${m2(fits[fits.length - 1].largura)} cabe.` : '';
+    $('fitText').textContent = `Não cabe: faltam ${cm(-slack)}.${alt}`;
+  }
+}
+$('wall').addEventListener('input', updateFit);
+
+// ---------- ver na minha sala (realidade aumentada) ----------
+function openSheet() {
+  const t = size();
+  $('sheetUrl').hidden = true; $('tryAr').hidden = true; $('sheetSteps').hidden = false;
+  if (inApp) {
+    $('sheetTitle').textContent = 'Abra no navegador';
+    $('sheetText').textContent = 'O navegador do Instagram não abre a câmera. Toque nos três pontinhos (⋯) no canto da tela e escolha “Abrir no navegador”.';
+  } else if (inFrame) {
+    $('sheetTitle').textContent = 'Na sua sala, em tamanho real';
+    $('sheetText').textContent = `No site da loja, este botão abre a câmera do celular e coloca ${({ Poltrona: 'a poltrona', Puff: 'o puff' })[model().categoria] || 'o sofá'} ${model().nome} de ${m2(t.largura)} no chão da sua sala, na medida exata. Nesta prévia a câmera fica bloqueada.`;
+    $('tryAr').hidden = !mv.canActivateAR;
+  } else if (!isMobile) {
+    $('sheetTitle').textContent = 'Abra no celular';
+    $('sheetText').textContent = 'A visualização na sala usa a câmera do celular. Abra este endereço no seu telefone:';
+    $('sheetUrlText').textContent = location.href.split('#')[0] + '#' + model().id;
+    $('sheetUrl').hidden = false; $('sheetSteps').hidden = true;
+  } else {
+    $('sheetTitle').textContent = 'Seu celular não abriu a câmera';
+    $('sheetText').textContent = 'A visualização na sala precisa de um celular com realidade aumentada (ARCore no Android, ARKit no iPhone) e do navegador Chrome ou Safari.';
+  }
+  $('sheetBg').hidden = false;
+  $('closeSheet').focus();
+}
+const closeSheet = () => { $('sheetBg').hidden = true; $('arBtn').focus(); };
+$('closeSheet').addEventListener('click', closeSheet);
+$('sheetBg').addEventListener('click', (e) => { if (e.target === $('sheetBg')) closeSheet(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('sheetBg').hidden) closeSheet(); });
+// a poltrona reclinável vai fechada para a câmera: no iPhone o encosto não sai inclinado no arquivo da realidade aumentada
+function fecharParaAR() {
+  if (!size().reclina || !state.open) return;
+  cancelAnimationFrame(raf); state.open = false; animT = 0; mv.currentTime = 0; placeDims(); updateUI();
+}
+$('tryAr').addEventListener('click', () => { closeSheet(); fecharParaAR(); mv.activateAR().catch(() => {}); });
+$('copyUrl').addEventListener('click', () => {
+  const txt = $('sheetUrlText').textContent;
+  navigator.clipboard.writeText(txt).then(() => { $('copyUrl').textContent = 'Copiado'; }).catch(() => {
+    const r = document.createRange(); r.selectNodeContents($('sheetUrlText')); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  });
+});
+$('arBtn').addEventListener('click', async () => {
+  if (!inFrame && !inApp && mv.canActivateAR) {
+    fecharParaAR();
+    try { await mv.activateAR(); return; } catch { /* cai para a explicação */ }
+  }
+  openSheet();
+});
+mv.addEventListener('ar-status', (e) => { if (e.detail.status === 'failed') openSheet(); });
+
+if (inApp && !inFrame) {
+  $('inapp').hidden = false;
+  if (/Android/i.test(navigator.userAgent)) {
+    const a = $('inappLink');
+    a.href = `intent://${location.host}${location.pathname}${location.search}#Intent;scheme=https;package=com.android.chrome;end`;
+    a.hidden = false;
+  }
+}
+
+renderSizes();
+updateUI();
+loadSize();
+requestAnimationFrame(revealModel);
+</script>
+
+</body></html>
